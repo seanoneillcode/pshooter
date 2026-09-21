@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jx84qdyhswiq"
-path="res://.godot/imported/gun_sprites.png-ea27abf2599e74644c181c8fd3f7ff89.ctex"
+uid="uid://bwt5xqxl3scjy"
+path="res://.godot/imported/enemy-blue-hurt.png-e35af4e1cc9f4a058cd678590a674285.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gun_sprites.png"
-dest_files=["res://.godot/imported/gun_sprites.png-ea27abf2599e74644c181c8fd3f7ff89.ctex"]
+source_file="res://characters/enemy-blue-hurt.png"
+dest_files=["res://.godot/imported/enemy-blue-hurt.png-e35af4e1cc9f4a058cd678590a674285.ctex"]
 
 [params]
 

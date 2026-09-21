@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvb81psjyk03d"
-path="res://.godot/imported/blob-attack.png-c46380fbc9cd1575d8a40deea31ef961.ctex"
+uid="uid://bi3e3mhhdcuiv"
+path="res://.godot/imported/dawnbringer-16-1x.png-aacc557e9e9485540aeeb41640e82447.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://blob-attack.png"
-dest_files=["res://.godot/imported/blob-attack.png-c46380fbc9cd1575d8a40deea31ef961.ctex"]
+source_file="res://palettes/dawnbringer-16-1x.png"
+dest_files=["res://.godot/imported/dawnbringer-16-1x.png-aacc557e9e9485540aeeb41640e82447.ctex"]
 
 [params]
 

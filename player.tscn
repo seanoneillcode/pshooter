@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://crfladbe727gk"]
 
-[ext_resource type="Texture2D" uid="uid://jx84qdyhswiq" path="res://gun_sprites.png" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://jx84qdyhswiq" path="res://hud/gun_sprites.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://drf4mxeksije2" path="res://player.gd" id="1_onrkg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_41f5n"]

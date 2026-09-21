@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://01ggghvnowhn"
-path="res://.godot/imported/blob-hurt.png-736c1f3ca2c61f31ab55e1f1138d8827.ctex"
+uid="uid://cf4gw1djyrmft"
+path="res://.godot/imported/rosy_palette.png-9fee6ef8b6456b550c974b6437ee660f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://blob-hurt.png"
-dest_files=["res://.godot/imported/blob-hurt.png-736c1f3ca2c61f31ab55e1f1138d8827.ctex"]
+source_file="res://palettes/rosy_palette.png"
+dest_files=["res://.godot/imported/rosy_palette.png-9fee6ef8b6456b550c974b6437ee660f.ctex"]
 
 [params]
 

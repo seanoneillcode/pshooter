@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://l4cvas2kcawv"
-path="res://.godot/imported/enemy-blue-move.png-27966b1aff1f9ef795bf7a569d7b16a4.ctex"
+uid="uid://bhcmcaypl1ema"
+path="res://.godot/imported/enemy-blue-attack.png-8b7f0ba7bce322f7c85c48d47bc66486.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy-blue-move.png"
-dest_files=["res://.godot/imported/enemy-blue-move.png-27966b1aff1f9ef795bf7a569d7b16a4.ctex"]
+source_file="res://characters/enemy-blue-attack.png"
+dest_files=["res://.godot/imported/enemy-blue-attack.png-8b7f0ba7bce322f7c85c48d47bc66486.ctex"]
 
 [params]
 

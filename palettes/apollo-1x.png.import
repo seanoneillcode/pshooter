@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnpr826jvcp5q"
-path="res://.godot/imported/bullet.png-ff1424653e10246c11e3724e402c519e.ctex"
+uid="uid://dvaxnbqf4ja7y"
+path="res://.godot/imported/apollo-1x.png-78386f236416555f50a7839db2cde312.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://bullet.png"
-dest_files=["res://.godot/imported/bullet.png-ff1424653e10246c11e3724e402c519e.ctex"]
+source_file="res://palettes/apollo-1x.png"
+dest_files=["res://.godot/imported/apollo-1x.png-78386f236416555f50a7839db2cde312.ctex"]
 
 [params]
 
