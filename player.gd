@@ -3,7 +3,7 @@ extends CharacterBody3D
 @onready var animated_sprite_2d = $CanvasLayer/gunbase/AnimatedSprite2D
 
 const SPEED = 3.0
-const MOUSE_SENSITIVITY = 0.3
+const MOUSE_SENSITIVITY = 0.4
 var can_shoot = true
 
 func _ready():

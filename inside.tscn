@@ -1,7 +1,8 @@
-[gd_scene format=3 uid="uid://b11i3cvj5lnkc"]
+[gd_scene format=3 uid="uid://dbkrm058gwkqj"]
 
-[ext_resource type="PackedScene" uid="uid://crfladbe727gk" path="res://player.tscn" id="1_f3sb7"]
-[ext_resource type="Texture2D" uid="uid://vkbbo121rynm" path="res://background.png" id="1_fj7yv"]
+[ext_resource type="Texture2D" uid="uid://b4fahh4eorts2" path="res://door.png" id="1_7ujdm"]
+[ext_resource type="Texture2D" uid="uid://vkbbo121rynm" path="res://background.png" id="1_r8opg"]
+[ext_resource type="PackedScene" uid="uid://crfladbe727gk" path="res://player.tscn" id="2_7ujdm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vjr50"]
 albedo_color = Color(1.2032688e-08, 0.13795754, 0.16451785, 1)
@@ -15,8 +16,17 @@ albedo_color = Color(0.44215447, 0.03266954, 0.16515559, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_onrkg"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_touke"]
+albedo_texture = ExtResource("1_7ujdm")
+metallic_specular = 0.0
+roughness = 0.0
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gskfx"]
+albedo_texture = ExtResource("1_7ujdm")
+
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_i3pqv"]
-panorama = ExtResource("1_fj7yv")
+panorama = ExtResource("1_r8opg")
 filter = false
 
 [sub_resource type="Sky" id="Sky_onrkg"]
@@ -33,6 +43,12 @@ sky = SubResource("Sky_onrkg")
 
 [node name="ground" type="MeshInstance3D" parent="environment" unique_id=1941861936]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_vjr50")
+mesh = SubResource("PlaneMesh_41f5n")
+
+[node name="ground2" type="MeshInstance3D" parent="environment" unique_id=675771384]
+transform = Transform3D(-10.000002, 8.742279e-07, 0, -8.742279e-07, -10.000002, 0, 0, 0, 10, 0, 1, 0)
+visible = false
 material_override = SubResource("StandardMaterial3D_vjr50")
 mesh = SubResource("PlaneMesh_41f5n")
 
@@ -157,9 +173,9 @@ mesh = SubResource("BoxMesh_41f5n")
 shape = SubResource("BoxShape3D_onrkg")
 
 [node name="wall29" type="MeshInstance3D" parent="environment" unique_id=153236062]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.5, 2)
-material_override = SubResource("StandardMaterial3D_41hqj")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0075963, 0.5, 2.4786563)
 mesh = SubResource("BoxMesh_41f5n")
+surface_material_override/0 = SubResource("StandardMaterial3D_touke")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="environment/wall29" unique_id=618425572]
 
@@ -190,6 +206,7 @@ shape = SubResource("BoxShape3D_onrkg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.5, 5)
 material_override = SubResource("StandardMaterial3D_41hqj")
 mesh = SubResource("BoxMesh_41f5n")
+surface_material_override/0 = SubResource("StandardMaterial3D_gskfx")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="environment/wall32" unique_id=1854643897]
 
@@ -539,10 +556,21 @@ shape = SubResource("BoxShape3D_onrkg")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1674347039]
 environment = SubResource("Environment_41f5n")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=535191860]
-transform = Transform3D(0.70710677, 0.49999997, -0.49999997, 0, 0.7071068, 0.7071068, 0.7071068, -0.5, 0.5, 0, 7, 0)
-shadow_enabled = true
-sky_mode = 1
-
-[node name="player" parent="." unique_id=1922500395 instance=ExtResource("1_f3sb7")]
+[node name="player" parent="." unique_id=1922500395 instance=ExtResource("2_7ujdm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5152738, 0, 2.6136284)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=1376589955]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.238554, 0.24522996, 1.4488211)
+light_color = Color(0.90108955, 0.6733736, 0.35168585, 1)
+light_energy = 2.0
+light_size = 1.0
+light_bake_mode = 1
+shadow_enabled = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1518189438]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2786932, 1.047278, 6.302796)
+light_color = Color(0.71691686, 0.8954582, 0.24208945, 1)
+light_energy = 9.713
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 9.585983
