@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://crfladbe727gk" path="res://player.tscn" id="1_f3sb7"]
 [ext_resource type="Texture2D" uid="uid://vkbbo121rynm" path="res://background.png" id="1_fj7yv"]
+[ext_resource type="Shader" uid="uid://br5lox8b1n2l2" path="res://palette_shader.gdshader" id="3_k0juu"]
+[ext_resource type="Texture2D" uid="uid://c434b4unek0r7" path="res://palettes/zughy-32-1x.png" id="4_k0juu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vjr50"]
 albedo_color = Color(1.2032688e-08, 0.13795754, 0.16451785, 1)
@@ -24,8 +26,13 @@ sky_material = SubResource("PanoramaSkyMaterial_i3pqv")
 
 [sub_resource type="Environment" id="Environment_41f5n"]
 background_mode = 2
-background_color = Color(0.23171556, 0.45556074, 0.54406774, 1)
 sky = SubResource("Sky_onrkg")
+ambient_light_source = 2
+ambient_light_color = Color(0.831281, 0.16106948, 7.70092e-07, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qfnet"]
+shader = ExtResource("3_k0juu")
+shader_parameter/palette = ExtResource("4_k0juu")
 
 [node name="world" type="Node3D" unique_id=557883101]
 
@@ -541,8 +548,20 @@ environment = SubResource("Environment_41f5n")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=535191860]
 transform = Transform3D(0.70710677, 0.49999997, -0.49999997, 0, 0.7071068, 0.7071068, 0.7071068, -0.5, 0.5, 0, 7, 0)
+light_energy = 4.0
+light_bake_mode = 1
 shadow_enabled = true
+directional_shadow_mode = 1
 sky_mode = 1
 
 [node name="player" parent="." unique_id=1922500395 instance=ExtResource("1_f3sb7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5152738, 0, 2.6136284)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=885361181]
+material = SubResource("ShaderMaterial_qfnet")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(16.04, 12.039999)
