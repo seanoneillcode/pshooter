@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpbp8tyf1ipcv"
-path.s3tc="res://.godot/imported/wall-01.png-49e28c1d126f07cb05f31436b9dc1031.s3tc.ctex"
+uid="uid://pvgrtexb3t28"
+path.s3tc="res://.godot/imported/floor.png-aeae3e9548f2e21c5031e280b64cf5af.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://tiles/ship/wall-01.png"
-dest_files=["res://.godot/imported/wall-01.png-49e28c1d126f07cb05f31436b9dc1031.s3tc.ctex"]
+source_file="res://tilesets/floor.png"
+dest_files=["res://.godot/imported/floor.png-aeae3e9548f2e21c5031e280b64cf5af.s3tc.ctex"]
 
 [params]
 

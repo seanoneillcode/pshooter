@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbamc8p6u0b16"
-path.s3tc="res://.godot/imported/wall-color-tex.png-de1facd0a17fe173eb247780cd8797bb.s3tc.ctex"
+uid="uid://d23la71q7ia1r"
+path.s3tc="res://.godot/imported/ship_tiles_7.png-6c3d030dc224a75788027b038f648754.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "96c3d11f617da67d296bdb411cbdc1f6"
+}
 
 [deps]
 
-source_file="res://tiles/wall-color-tex.png"
-dest_files=["res://.godot/imported/wall-color-tex.png-de1facd0a17fe173eb247780cd8797bb.s3tc.ctex"]
+source_file="res://objects/ship_tiles_7.png"
+dest_files=["res://.godot/imported/ship_tiles_7.png-6c3d030dc224a75788027b038f648754.s3tc.ctex"]
 
 [params]
 

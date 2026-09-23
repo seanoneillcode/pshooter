@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://b5a4qvdxlg72a"]
+
+[ext_resource type="MeshLibrary" uid="uid://bhukfxfho76gc" path="res://tilesets/ship/ship_tile_lib.res" id="1_3bfra"]
+[ext_resource type="Script" uid="uid://yoe66dnxn485" path="res://levels/show_on_run.gd" id="2_2pg8c"]
+[ext_resource type="PackedScene" uid="uid://crfladbe727gk" path="res://player.tscn" id="2_hr6j5"]
+[ext_resource type="Texture2D" uid="uid://vkbbo121rynm" path="res://background.png" id="3_2pg8c"]
+[ext_resource type="Shader" uid="uid://br5lox8b1n2l2" path="res://palettes/palette_shader.gdshader" id="4_4hyqq"]
+[ext_resource type="Texture2D" uid="uid://c434b4unek0r7" path="res://palettes/zughy-32-1x.png" id="5_g87ky"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_lsjop"]
+panorama = ExtResource("3_2pg8c")
+filter = false
+
+[sub_resource type="Sky" id="Sky_onrkg"]
+sky_material = SubResource("PanoramaSkyMaterial_lsjop")
+
+[sub_resource type="Environment" id="Environment_iy4d5"]
+background_mode = 2
+background_color = Color(0.23171556, 0.45556074, 0.54406774, 1)
+sky = SubResource("Sky_onrkg")
+ambient_light_source = 2
+ambient_light_color = Color(0.46299332, 0.42518485, 0.42528668, 1)
+fog_density = 0.1164
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hcjx4"]
+shader = ExtResource("4_4hyqq")
+shader_parameter/palette = ExtResource("5_g87ky")
+
+[node name="world" type="Node3D" unique_id=1244489731]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=287509822]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49138212, 0.72868705, 0.6395123)
+light_bake_mode = 1
+omni_range = 2.0
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="." unique_id=294370104]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4913821, 0.72868705, 2.6395123)
+light_color = Color(0, 0, 1, 1)
+light_bake_mode = 1
+omni_range = 2.026399
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="." unique_id=970447402]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6268334, 0.72868705, 6.657306)
+light_color = Color(0, 0, 1, 1)
+light_energy = 2.0
+light_bake_mode = 1
+omni_range = 5.146889
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="." unique_id=1586075470]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.508617, 0.72868705, 1.6395123)
+light_bake_mode = 1
+omni_range = 2.026399
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="." unique_id=609179937]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.872133, 0.45740366, -1.9364774)
+light_bake_mode = 1
+omni_range = 1.1587639
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="." unique_id=492924944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4913826, 0.72868705, -5.1335173)
+light_color = Color(1, 0, 0, 1)
+light_energy = 2.0
+light_bake_mode = 1
+omni_range = 2.7274244
+
+[node name="OmniLight3D12" type="OmniLight3D" parent="." unique_id=1617443710]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5493813, 0.72868705, -5.1335173)
+light_color = Color(1, 0, 0, 1)
+light_energy = 2.0
+light_bake_mode = 1
+omni_range = 2.7274244
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="." unique_id=915655299]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.508618, 0.72868705, 2.6395123)
+light_color = Color(0, 0, 1, 1)
+light_bake_mode = 1
+omni_range = 3.0081222
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=1035029513]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49138212, 0.72868705, -2.418898)
+light_bake_mode = 1
+omni_range = 2.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=1903781467]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5543685, 0.72868705, -2.418898)
+light_bake_mode = 1
+omni_range = 1.4204767
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="." unique_id=484084110]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5543685, 0.72868705, 0.57453585)
+light_bake_mode = 1
+omni_range = 1.4331744
+
+[node name="environment" type="Node3D" parent="." unique_id=928277804]
+
+[node name="GridMap" type="GridMap" parent="environment" unique_id=834339702]
+mesh_library = ExtResource("1_3bfra")
+cell_size = Vector3(1, 1, 1)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(65534, 65535, 1441795, 65535, 65535, 1441795, 65535, 0, 1441795, 65534, 0, 1441795, 65533, 0, 1441795, 65533, 65535, 1441795, 65533, 65534, 1441795, 65534, 65534, 1441795, 65535, 65534, 1441795, 0, 65534, 1441795, 0, 65533, 1441795, 65535, 65533, 1441795, 65534, 65533, 1441795, 65533, 65533, 1441795, 65532, 65533, 1441795, 65532, 65534, 1441795, 65532, 65535, 1441795, 65532, 0, 1441795, 0, 0, 1441795, 1, 0, 1441795, 0, 65535, 1441795, 1, 65535, 1441795, 1, 65534, 1441795, 1, 65533, 1441795, 1, 1, 655361, 0, 1, 1441793, 65535, 1, 655361, 65534, 1, 655361, 65533, 1, 1441793, 65532, 1, 655361, 65531, 1, 1441793, 65531, 0, 1441793, 65531, 65535, 1048577, 65531, 65534, 1048577, 65531, 65533, 1048577, 65531, 65532, 1441793, 65532, 65532, 1441793, 65533, 65532, 3, 65534, 65532, 1441793, 65535, 65532, 1048577, 0, 65532, 1441793, 1, 65532, 1441793, 2, 1, 1441793, 2, 0, 1441793, 2, 65535, 3, 2, 65534, 1441793, 2, 65533, 1441793, 2, 65532, 1441793, 65533, 65531, 3, 65533, 65530, 3, 65533, 65529, 0, 65534, 65530, 3, 65534, 65529, 0, 65535, 65530, 3, 0, 65530, 3, 1, 65530, 3, 2, 65530, 3, 3, 65530, 3, 3, 65529, 0, 2, 65529, 0, 1, 65529, 0, 0, 65529, 0, 65535, 65529, 0, 65532, 65529, 0, 65532, 65530, 3, 65531, 65530, 3, 65531, 65529, 0, 65530, 65529, 0, 65530, 65530, 3, 65531, 65531, 3, 65532, 65531, 3, 65534, 65531, 3, 65535, 65531, 3, 0, 65531, 3, 1, 65531, 3, 2, 65531, 3, 3, 65531, 3, 65530, 65531, 3, 65530, 65532, 3, 65530, 65533, 3, 65530, 65534, 3, 65530, 65535, 3, 65530, 0, 3, 65530, 1, 3, 65530, 2, 3, 65529, 65533, 3, 65529, 65532, 0, 65529, 65534, 0, 65529, 65535, 0, 65529, 0, 3, 65529, 2, 0, 65529, 1, 3, 65528, 65535, 0, 65528, 65532, 0, 65527, 65532, 0, 65526, 65532, 0, 65526, 65533, 0, 65526, 65534, 0, 65526, 65535, 0, 65527, 65535, 0, 65526, 0, 0, 65526, 1, 0, 65529, 3, 0, 65528, 3, 0, 65527, 3, 0, 65526, 3, 0, 65526, 2, 0, 65528, 0, 3, 65527, 0, 3, 65527, 1, 3, 65527, 2, 3, 65528, 2, 3, 65528, 1, 3, 65528, 65533, 3, 65527, 65533, 3, 65527, 65534, 3, 65528, 65534, 3, 65531, 2, 3, 65532, 2, 3, 65532, 3, 3, 65533, 3, 3, 65532, 4, 3, 65533, 4, 3, 65534, 3, 3, 65535, 3, 3, 65535, 4, 3, 65534, 4, 3, 0, 2, 3, 1, 2, 3, 2, 2, 3, 3, 2, 3, 65531, 3, 1441794, 65530, 3, 0, 65531, 4, 1441794, 65533, 2, 2, 65534, 2, 2, 65535, 2, 2, 1, 3, 2, 1, 4, 2, 0, 5, 1441794, 65535, 5, 3, 65534, 5, 3, 65533, 5, 3, 65532, 5, 2, 3, 3, 0, 2, 3, 0, 65528, 65531, 3, 65529, 65531, 3, 65529, 65530, 3, 65528, 65530, 3, 65527, 65531, 3, 65526, 65531, 3, 65526, 65530, 3, 65527, 65530, 3, 65526, 65529, 0, 65527, 65529, 0, 65528, 65529, 0, 65529, 65529, 0, 3, 1, 0, 3, 0, 3, 3, 65535, 3, 3, 65534, 3, 3, 65533, 3, 3, 65532, 0, 0, 4, 3, 0, 3, 3, 4, 65530, 3, 4, 65531, 3, 65535, 6, 3, 65535, 7, 3, 65534, 7, 3, 65534, 6, 3, 65533, 6, 3, 65533, 7, 3, 65533, 8, 3, 65534, 8, 3, 65535, 8, 3, 0, 6, 655362, 0, 7, 1441794, 0, 8, 655362, 0, 9, 2, 65535, 9, 655362, 65534, 9, 1048578, 65533, 9, 655362, 65532, 9, 2, 65532, 8, 1048578, 65532, 7, 2, 65532, 6, 1048578)
+}
+
+[node name="ceiling" type="GridMap" parent="environment" unique_id=570444595]
+visible = false
+mesh_library = ExtResource("1_3bfra")
+cell_size = Vector3(1, 1, 1)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(65534, 65535, 5, 65535, 65535, 5, 65535, 0, 5, 65534, 0, 5, 65533, 0, 7, 65533, 65535, 5, 65533, 65534, 5, 65534, 65534, 5, 65535, 65534, 5, 0, 65534, 5, 0, 65533, 7, 65534, 65533, 5, 65533, 65533, 7, 65532, 65533, 5, 65532, 65534, 5, 65532, 65535, 5, 65532, 0, 5, 0, 0, 7, 1, 0, 5, 0, 65535, 5, 1, 65535, 5, 1, 65534, 5, 1, 65533, 5, 65535, 65533, 5, 65532, 3, 5, 65532, 4, 5, 65533, 4, 5, 65534, 4, 5, 65535, 4, 5, 65535, 3, 5, 65534, 3, 5, 65533, 3, 5, 0, 3, 5, 0, 4, 5, 0, 2, 5, 1, 2, 5, 2, 2, 7, 3, 2, 5, 65531, 2, 7, 65532, 2, 5, 65530, 2, 5, 65529, 1, 5, 65529, 0, 5, 65530, 0, 5, 65530, 1, 5, 65528, 0, 5, 65527, 0, 5, 65527, 1, 7, 65527, 2, 5, 65528, 2, 5, 65528, 1, 5, 65530, 65535, 5, 65530, 65534, 5, 65530, 65533, 5, 65529, 65533, 5, 65528, 65533, 5, 65527, 65533, 5, 65528, 65534, 7, 65527, 65534, 5, 65530, 65532, 5, 65527, 65531, 5, 65528, 65531, 5, 65529, 65531, 5, 65530, 65531, 5, 65526, 65531, 5, 65526, 65530, 5, 65527, 65530, 5, 65528, 65530, 5, 65529, 65530, 5, 65531, 65531, 5, 65532, 65531, 5, 65532, 65530, 5, 65531, 65530, 5, 65530, 65530, 7, 65534, 65531, 5, 65533, 65531, 5, 65533, 65532, 5, 65533, 65530, 5, 65534, 65530, 5, 65535, 65531, 5, 0, 65531, 5, 1, 65531, 5, 2, 65531, 5, 3, 65531, 5, 3, 65530, 5, 2, 65530, 5, 1, 65530, 5, 0, 65530, 7, 65535, 65530, 5, 2, 65535, 5, 3, 65535, 5, 3, 0, 5, 3, 65534, 5, 3, 65533, 5, 65534, 6, 7, 65535, 5, 5, 65534, 5, 5, 65533, 5, 5, 65533, 6, 5, 65533, 7, 5, 65533, 8, 5, 65534, 8, 5, 65535, 7, 5, 65534, 7, 5, 65535, 8, 5, 65535, 6, 5)
+}
+script = ExtResource("2_2pg8c")
+
+[node name="player" parent="." unique_id=1922500395 instance=ExtResource("2_hr6j5")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1024785320]
+environment = SubResource("Environment_iy4d5")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=325481636]
+material = SubResource("ShaderMaterial_hcjx4")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(16.04, 12.039999)

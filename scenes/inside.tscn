@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://dbkrm058gwkqj"]
 
-[ext_resource type="Texture2D" uid="uid://pvgrtexb3t28" path="res://tiles/floor.png" id="1_d3bmk"]
+[ext_resource type="Texture2D" uid="uid://pvgrtexb3t28" path="res://tilesets/floor.png" id="1_d3bmk"]
 [ext_resource type="Material" uid="uid://dokqcse1tq7dc" path="res://materials/stone-01.tres" id="2_d3bmk"]
-[ext_resource type="Texture2D" uid="uid://b4fahh4eorts2" path="res://tiles/door.png" id="2_udlaf"]
+[ext_resource type="Texture2D" uid="uid://b4fahh4eorts2" path="res://tilesets/door.png" id="2_udlaf"]
 [ext_resource type="Texture2D" uid="uid://vkbbo121rynm" path="res://background.png" id="4_4qeqt"]
 [ext_resource type="PackedScene" uid="uid://crfladbe727gk" path="res://player.tscn" id="5_ukexp"]
-[ext_resource type="Shader" uid="uid://br5lox8b1n2l2" path="res://palette_shader.gdshader" id="6_ul6jp"]
+[ext_resource type="Shader" uid="uid://br5lox8b1n2l2" path="res://palettes/palette_shader.gdshader" id="6_ul6jp"]
 [ext_resource type="Texture2D" uid="uid://c434b4unek0r7" path="res://palettes/zughy-32-1x.png" id="7_xfjx7"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_gskfx"]
@@ -33,13 +33,13 @@ albedo_texture = ExtResource("2_udlaf")
 panorama = ExtResource("4_4qeqt")
 filter = false
 
-[sub_resource type="Sky" id="Sky_onrkg"]
+[sub_resource type="Sky" id="Sky_d3bmk"]
 sky_material = SubResource("PanoramaSkyMaterial_i3pqv")
 
 [sub_resource type="Environment" id="Environment_41f5n"]
 background_mode = 2
 background_color = Color(0.23171556, 0.45556074, 0.54406774, 1)
-sky = SubResource("Sky_onrkg")
+sky = SubResource("Sky_d3bmk")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7ujdm"]
 shader = ExtResource("6_ul6jp")

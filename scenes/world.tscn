@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://crfladbe727gk" path="res://player.tscn" id="1_f3sb7"]
 [ext_resource type="Texture2D" uid="uid://vkbbo121rynm" path="res://background.png" id="1_fj7yv"]
-[ext_resource type="Shader" uid="uid://br5lox8b1n2l2" path="res://palette_shader.gdshader" id="3_k0juu"]
+[ext_resource type="Shader" uid="uid://br5lox8b1n2l2" path="res://palettes/palette_shader.gdshader" id="3_k0juu"]
 [ext_resource type="Texture2D" uid="uid://c434b4unek0r7" path="res://palettes/zughy-32-1x.png" id="4_k0juu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vjr50"]
