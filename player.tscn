@@ -1,68 +1,24 @@
 [gd_scene format=3 uid="uid://crfladbe727gk"]
 
-[ext_resource type="Texture2D" uid="uid://jx84qdyhswiq" path="res://hud/gun_sprites.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://drf4mxeksije2" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="PackedScene" uid="uid://bqtinwo6vi6d" path="res://hud/arm.gltf" id="2_hqtel"]
+[ext_resource type="PackedScene" uid="uid://babpoqjgjaadc" path="res://hud/gun.gltf" id="2_i3pqv"]
+[ext_resource type="SpriteFrames" uid="uid://cbcik221dk7uy" path="res://hud/gun_sprite_frames.tres" id="2_onrkg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_41f5n"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
-atlas = ExtResource("1_4flbx")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
-atlas = ExtResource("1_4flbx")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
-atlas = ExtResource("1_4flbx")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
-atlas = ExtResource("1_4flbx")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
-atlas = ExtResource("1_4flbx")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_vjr50"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_onrkg")
-}],
-"loop": 1,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i3pqv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hqtel")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sweqy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2hs0m")
-}],
-"loop": 0,
-"name": &"shoot",
-"speed": 10.0
-}]
 
 [node name="player" type="CharacterBody3D" unique_id=1922500395 groups=["player"]]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_onrkg")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=208821686]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5, 0)
-shape = SubResource("CapsuleShape3D_41f5n")
+[node name="arm" parent="." unique_id=1422437292 instance=ExtResource("2_hqtel")]
+transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 0.17116511, 0.15586275, -0.6422)
+
+[node name="gun" parent="arm" unique_id=2046619011 instance=ExtResource("2_i3pqv")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=595478448]
+visible = false
 
 [node name="gunbase" type="Control" parent="CanvasLayer" unique_id=1679545396]
 layout_mode = 3
@@ -71,25 +27,27 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = 0.00018310547
+offset_top = 0.00015258789
+offset_right = 0.00018310547
+offset_bottom = 0.00015258789
 grow_horizontal = 2
 grow_vertical = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/gunbase" unique_id=673561433]
 texture_filter = 1
-position = Vector2(141.99998, -257)
-scale = Vector2(17.683, 16)
-sprite_frames = SubResource("SpriteFrames_vjr50")
+position = Vector2(25, -60.000015)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("2_onrkg")
 animation = &"shoot"
 autoplay = "idle"
 frame = 3
 frame_progress = 1.0
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=208821686]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_41f5n")
+
 [node name="Camera3D" type="Camera3D" parent="." unique_id=303652254]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 fov = 60.0
-
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=762055398]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5201506, 0)
-visible = false
-light_energy = 0.5
-omni_range = 6.628542
