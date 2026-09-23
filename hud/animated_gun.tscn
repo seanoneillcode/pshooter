@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://ctgfnaeyyx3ax"]
+
+[ext_resource type="PackedScene" uid="uid://c86u5vvopu48t" path="res://hud/gunarm.gltf" id="1_oe1y0"]
+
+[node name="blockbench_export" unique_id=779666712 instance=ExtResource("1_oe1y0")]

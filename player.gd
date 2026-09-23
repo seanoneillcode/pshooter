@@ -1,14 +1,15 @@
 extends CharacterBody3D
 
-@onready var animated_sprite_2d = $CanvasLayer/gunbase/AnimatedSprite2D
+@onready var animation_player = $gun/AnimationPlayer
 
 const SPEED = 3.0
 const MOUSE_SENSITIVITY = 0.4
-var can_shoot = true
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	animated_sprite_2d.animation_finished.connect(shoot_anim_done)
+	animation_player.play("idle")
+	animation_player.animation_set_next("shoot", "idle")
+
 	
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -34,15 +35,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func shoot():
-	if !can_shoot:
-		return
-	can_shoot = false
-	animated_sprite_2d.play("shoot")
+	animation_player.play("shoot")
+	animation_player.seek(0)
 	# create bullet
-	pass
 
-func shoot_anim_done():
-	can_shoot = true
 	
 	
 	

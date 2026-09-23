@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://crfladbe727gk"]
 
 [ext_resource type="Script" uid="uid://drf4mxeksije2" path="res://player.gd" id="1_onrkg"]
-[ext_resource type="PackedScene" uid="uid://bqtinwo6vi6d" path="res://hud/arm.gltf" id="2_hqtel"]
-[ext_resource type="PackedScene" uid="uid://babpoqjgjaadc" path="res://hud/gun.gltf" id="2_i3pqv"]
-[ext_resource type="SpriteFrames" uid="uid://cbcik221dk7uy" path="res://hud/gun_sprite_frames.tres" id="2_onrkg"]
+[ext_resource type="PackedScene" uid="uid://c86u5vvopu48t" path="res://hud/gunarm.gltf" id="2_i3pqv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_41f5n"]
 
@@ -12,38 +10,6 @@ collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_onrkg")
 
-[node name="arm" parent="." unique_id=1422437292 instance=ExtResource("2_hqtel")]
-transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 0.17116511, 0.15586275, -0.6422)
-
-[node name="gun" parent="arm" unique_id=2046619011 instance=ExtResource("2_i3pqv")]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=595478448]
-visible = false
-
-[node name="gunbase" type="Control" parent="CanvasLayer" unique_id=1679545396]
-layout_mode = 3
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 0.00018310547
-offset_top = 0.00015258789
-offset_right = 0.00018310547
-offset_bottom = 0.00015258789
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/gunbase" unique_id=673561433]
-texture_filter = 1
-position = Vector2(25, -60.000015)
-scale = Vector2(4, 4)
-sprite_frames = ExtResource("2_onrkg")
-animation = &"shoot"
-autoplay = "idle"
-frame = 3
-frame_progress = 1.0
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=208821686]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5, 0)
 shape = SubResource("CapsuleShape3D_41f5n")
@@ -51,3 +17,8 @@ shape = SubResource("CapsuleShape3D_41f5n")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=303652254]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 fov = 60.0
+
+[node name="gun" parent="." unique_id=779666712 instance=ExtResource("2_i3pqv")]
+transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 0.17116511, 0.15586275, -0.6422)
+
+[editable path="gun"]
