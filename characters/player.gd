@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 @onready var animation_player = $gun/AnimationPlayer
+@onready var raycast_3d = $RayCast3D
 
 const SPEED = 3.0
 const MOUSE_SENSITIVITY = 0.4
@@ -38,6 +39,8 @@ func shoot():
 	animation_player.play("shoot")
 	animation_player.seek(0)
 	# create bullet
+	if raycast_3d.is_colliding() and raycast_3d.get_collider().has_method("get_hurt"):
+		raycast_3d.get_collider().get_hurt()
 
 	
 	

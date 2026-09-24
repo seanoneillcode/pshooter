@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://crfladbe727gk"]
 
-[ext_resource type="Script" uid="uid://drf4mxeksije2" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://drf4mxeksije2" path="res://characters/player.gd" id="1_onrkg"]
 [ext_resource type="PackedScene" uid="uid://c86u5vvopu48t" path="res://hud/gunarm.gltf" id="2_i3pqv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_41f5n"]
@@ -20,5 +20,9 @@ fov = 60.0
 
 [node name="gun" parent="." unique_id=779666712 instance=ExtResource("2_i3pqv")]
 transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 0.17116511, 0.15586275, -0.6422)
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=519085290]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+target_position = Vector3(0, 0, -100)
 
 [editable path="gun"]

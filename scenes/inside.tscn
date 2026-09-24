@@ -4,7 +4,7 @@
 [ext_resource type="Material" uid="uid://dokqcse1tq7dc" path="res://materials/stone-01.tres" id="2_d3bmk"]
 [ext_resource type="Texture2D" uid="uid://b4fahh4eorts2" path="res://tilesets/door.png" id="2_udlaf"]
 [ext_resource type="Texture2D" uid="uid://vkbbo121rynm" path="res://background.png" id="4_4qeqt"]
-[ext_resource type="PackedScene" uid="uid://crfladbe727gk" path="res://player.tscn" id="5_ukexp"]
+[ext_resource type="PackedScene" uid="uid://crfladbe727gk" path="res://characters/player.tscn" id="5_ukexp"]
 [ext_resource type="Shader" uid="uid://br5lox8b1n2l2" path="res://palettes/palette_shader.gdshader" id="6_ul6jp"]
 [ext_resource type="Texture2D" uid="uid://c434b4unek0r7" path="res://palettes/zughy-32-1x.png" id="7_xfjx7"]
 
