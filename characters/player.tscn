@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://drf4mxeksije2" path="res://characters/player.gd" id="1_onrkg"]
 [ext_resource type="PackedScene" uid="uid://c86u5vvopu48t" path="res://hud/gunarm.gltf" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://bkeucvxe4e4x7" path="res://hud/crosshair.png" id="2_tory2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_41f5n"]
 
@@ -24,5 +25,22 @@ transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=519085290]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 target_position = Vector3(0, 0, -100)
+
+[node name="Control" type="Control" parent="." unique_id=1636970700]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=2038451400]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 80.0
+offset_right = 107.0
+offset_bottom = 81.0
+texture = ExtResource("2_tory2")
 
 [editable path="gun"]

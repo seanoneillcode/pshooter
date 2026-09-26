@@ -13,10 +13,10 @@ var dead = false
 var state = ""
 
 func _ready():
+	animated_Sprite_3d.connect("animation_finished", handle_animation_finished)
 	animated_Sprite_3d.play("move")
 	await get_tree().create_timer(0.1).timeout
 	state = "idle"
-	animated_Sprite_3d.connect("animation_finished", handle_animation_finished)
 
 func _physics_process(delta: float) -> void:
 	if dead:
@@ -59,6 +59,7 @@ func get_hurt():
 	health = health - 1
 	if health == 0:
 		dead = true
+		state = "die"
 		animated_Sprite_3d.play("die")
 		$CollisionShape3D.disabled = true
 	else:
