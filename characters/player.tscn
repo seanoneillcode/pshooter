@@ -36,6 +36,7 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Control" unique_id=2038451400]
+modulate = Color(1, 1, 1, 0.27058825)
 layout_mode = 0
 offset_left = 106.0
 offset_top = 80.0

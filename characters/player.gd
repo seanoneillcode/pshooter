@@ -3,6 +3,8 @@ extends CharacterBody3D
 @onready var animation_player = $gun/AnimationPlayer
 @onready var raycast_3d = $RayCast3D
 
+@export var impact_effect: PackedScene = preload("res://effects/bullet_impact.tscn")
+
 const SPEED = 3.0
 const MOUSE_SENSITIVITY = 0.4
 
@@ -41,6 +43,13 @@ func shoot():
 	# create bullet
 	if raycast_3d.is_colliding() and raycast_3d.get_collider().has_method("get_hurt"):
 		raycast_3d.get_collider().get_hurt()
+		
+	var hit_point = raycast_3d.get_collision_point()
+	var hit_normal = raycast_3d.get_collision_normal()
+	var effect_instance = impact_effect.instantiate()
+	get_tree().current_scene.add_child(effect_instance)
+	effect_instance.global_position = hit_point + (hit_normal * 0.01)
+		
 
 	
 	
