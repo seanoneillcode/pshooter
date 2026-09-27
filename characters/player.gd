@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 @onready var animation_player = $gun/AnimationPlayer
 @onready var raycast_3d = $RayCast3D
+@onready var use_raycast = $UseRayCast
 
 @export var impact_effect: PackedScene = preload("res://effects/bullet_impact.tscn")
 
@@ -23,6 +24,8 @@ func _process(delta):
 		get_tree().quit()
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
+	if Input.is_action_just_pressed("use"):
+		use()
 
 func _physics_process(delta: float) -> void:
 
@@ -36,6 +39,12 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+func use():
+	print_debug("press use")
+	if use_raycast.is_colliding() and use_raycast.get_collider().has_method("get_used"):
+		use_raycast.get_collider().get_used()
+	
 
 func shoot():
 	animation_player.play("shoot")

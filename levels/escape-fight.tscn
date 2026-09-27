@@ -2,6 +2,7 @@
 
 [ext_resource type="MeshLibrary" uid="uid://bhukfxfho76gc" path="res://tilesets/ship/ship_tile_lib.res" id="1_kfsaf"]
 [ext_resource type="Script" uid="uid://yoe66dnxn485" path="res://levels/show_on_run.gd" id="2_ac4rt"]
+[ext_resource type="PackedScene" uid="uid://d20k41rq74ocq" path="res://objects/door.tscn" id="3_ac4rt"]
 [ext_resource type="PackedScene" uid="uid://crfladbe727gk" path="res://characters/player.tscn" id="3_dxayl"]
 [ext_resource type="Texture2D" uid="uid://vkbbo121rynm" path="res://background.png" id="4_ur2xx"]
 [ext_resource type="Shader" uid="uid://br5lox8b1n2l2" path="res://palettes/palette_shader.gdshader" id="5_hbrsl"]
@@ -105,8 +106,28 @@ cell_size = Vector3(1, 1, 1)
 cell_center_y = false
 script = ExtResource("2_ac4rt")
 
+[node name="doors" type="Node3D" parent="environment" unique_id=522768120]
+
+[node name="door" parent="environment/doors" unique_id=925404410 instance=ExtResource("3_ac4rt")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.5072136, 0, -0.4964745)
+
+[node name="door2" parent="environment/doors" unique_id=1381597662 instance=ExtResource("3_ac4rt")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9.507214, 0, -0.4964745)
+
+[node name="door3" parent="environment/doors" unique_id=2021762004 instance=ExtResource("3_ac4rt")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -14.507214, 0, 0.5035255)
+
+[node name="door4" parent="environment/doors" unique_id=668170736 instance=ExtResource("3_ac4rt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.507214, 0, -2.4964745)
+
+[node name="door5" parent="environment/doors" unique_id=507841434 instance=ExtResource("3_ac4rt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.507214, 0, -7.4964743)
+
+[node name="door6" parent="environment/doors" unique_id=701255627 instance=ExtResource("3_ac4rt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.507214, 0, -17.496475)
+
 [node name="player" parent="." unique_id=1922500395 instance=ExtResource("3_dxayl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.870985, 0, -5.3486204)
+transform = Transform3D(-0.00947263, 0, 0.9999551, 0, 1, 0, -0.9999551, 0, -0.00947263, -0.46808243, 0, -0.0034313202)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1024785320]
 environment = SubResource("Environment_iy4d5")

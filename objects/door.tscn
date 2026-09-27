@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://d20k41rq74ocq"]
+
+[ext_resource type="Script" uid="uid://ca8xpmhxjx43k" path="res://tilesets/ship/door.gd" id="1_j7xx1"]
+[ext_resource type="PackedScene" uid="uid://c66ota8n36ykc" path="res://tilesets/ship/door.gltf" id="2_khffo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_41f5n"]
+
+[node name="door" type="StaticBody3D" unique_id=1381597662]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_j7xx1")
+
+[node name="grab_use" type="CollisionShape3D" parent="." unique_id=504057761]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_41f5n")
+
+[node name="physical_door" type="StaticBody3D" parent="." unique_id=1405928080]
+
+[node name="stop_movement" type="CollisionShape3D" parent="physical_door" unique_id=1847607285]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_41f5n")
+
+[node name="door_model" parent="." unique_id=1190892704 instance=ExtResource("2_khffo")]
+
+[node name="left" parent="door_model/root" parent_id_path=PackedInt32Array(1190892704, 1064359530) index="0" unique_id=533230942]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40625, 0, 0)
+
+[node name="right" parent="door_model/root" parent_id_path=PackedInt32Array(1190892704, 1064359530) index="1" unique_id=871908824]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.40625, 0, 0)
+
+[editable path="door_model"]
