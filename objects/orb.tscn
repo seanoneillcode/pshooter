@@ -21,6 +21,22 @@ region = Rect2(64, 0, 32, 32)
 atlas = ExtResource("1_j0s63")
 region = Rect2(96, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5abfx"]
+atlas = ExtResource("1_j0s63")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1nl6"]
+atlas = ExtResource("1_j0s63")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5240"]
+atlas = ExtResource("1_j0s63")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmdns"]
+atlas = ExtResource("1_j0s63")
+region = Rect2(224, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_41f5n"]
 animations = [{
 "frames": [{
@@ -35,6 +51,18 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_o6g23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5abfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1nl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5240")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmdns")
 }],
 "loop": 1,
 "name": &"default",
@@ -89,13 +117,15 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.39812875, 0)
 shape = SubResource("SphereShape3D_41f5n")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=81911732]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.5184381, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.4, 0)
 billboard = 2
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_41f5n")
+frame = 4
+frame_progress = 0.6643158
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=626570304]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39901078, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4189583, 0)
 light_color = Color(0.74050564, 0.9628995, 0.9582779, 1)
 omni_range = 0.6243622
 
