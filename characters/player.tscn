@@ -3,8 +3,47 @@
 [ext_resource type="Script" uid="uid://drf4mxeksije2" path="res://characters/player.gd" id="1_onrkg"]
 [ext_resource type="PackedScene" uid="uid://c86u5vvopu48t" path="res://hud/gunarm.gltf" id="2_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://bkeucvxe4e4x7" path="res://hud/crosshair.png" id="2_tory2"]
+[ext_resource type="Script" uid="uid://c3b2opvya0gi2" path="res://characters/muzzle_flash.gd" id="3_evndh"]
+[ext_resource type="Texture2D" uid="uid://cit7d7xdpvil7" path="res://effects/muzzle-flash.png" id="3_x0jl3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_41f5n"]
+
+[sub_resource type="Gradient" id="Gradient_x0jl3"]
+offsets = PackedFloat32Array(0, 0.70342207, 1)
+colors = PackedColorArray(0.8972631, 0.90583676, 0.9051362, 1, 0.5485596, 0.839074, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_h1q25"]
+gradient = SubResource("Gradient_x0jl3")
+
+[sub_resource type="Curve" id="Curve_evndh"]
+_limits = [0.0, 0.25, 0.0, 1.0]
+_data = [Vector2(0.003460206, 0.25), 0.0, 0.0, 0, 0, Vector2(1, 0.089449555), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_evndh"]
+curve = SubResource("Curve_evndh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6s816"]
+angle_min = -360.0
+angle_max = 360.00003
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_evndh")
+color_ramp = SubResource("GradientTexture1D_h1q25")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vjr50"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_x0jl3")
+texture_filter = 0
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_41f5n"]
+material = SubResource("StandardMaterial3D_vjr50")
 
 [node name="player" type="CharacterBody3D" unique_id=1922500395 groups=["player"]]
 collision_layer = 2
@@ -21,6 +60,26 @@ fov = 60.0
 
 [node name="gun" parent="." unique_id=779666712 instance=ExtResource("2_i3pqv")]
 transform = Transform3D(-1.0927847e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.0927847e-08, 0.11087039, 0.31635788, -0.3521679)
+
+[node name="muzzle_flash" type="Node3D" parent="gun" unique_id=1050437580]
+transform = Transform3D(-1.7484555e-07, 0, -4, 0, 4, 0, 4, 0, -1.7484555e-07, 0.25617754, 0.4806186, 0.17366362)
+script = ExtResource("3_evndh")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="gun/muzzle_flash" unique_id=380946211]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0075211823, 0.009739816, -0.15844819)
+light_color = Color(0.6923119, 0.92631316, 1, 1)
+light_energy = 0.25
+omni_range = 2.0374382
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="gun/muzzle_flash" unique_id=1558928123]
+emitting = false
+amount = 1
+lifetime = 0.05
+one_shot = true
+randomness = 1.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_6s816")
+draw_pass_1 = SubResource("QuadMesh_41f5n")
 
 [node name="mesh" parent="gun/root" parent_id_path=PackedInt32Array(779666712, 1360884027) index="0" unique_id=1683403093]
 cast_shadow = 0

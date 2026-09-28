@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+signal weapon_fired
+
 @onready var animation_player = $gun/AnimationPlayer
 @onready var raycast_3d = $RayCast3D
 @onready var use_raycast = $UseRayCast
@@ -47,18 +49,19 @@ func use():
 	
 
 func shoot():
+	weapon_fired.emit()
 	animation_player.play("shoot")
 	animation_player.seek(0)
 	# create bullet
 	if raycast_3d.is_colliding() and raycast_3d.get_collider().has_method("get_hurt"):
 		raycast_3d.get_collider().get_hurt()
-		
+	
 	var hit_point = raycast_3d.get_collision_point()
 	var hit_normal = raycast_3d.get_collision_normal()
 	var effect_instance = impact_effect.instantiate()
 	get_tree().current_scene.add_child(effect_instance)
 	effect_instance.global_position = hit_point + (hit_normal * 0.01)
-		
+	
 
 func collect_item(name: String):
 	print_debug("picked up: "+ name)
