@@ -20,7 +20,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 fov = 60.0
 
 [node name="gun" parent="." unique_id=779666712 instance=ExtResource("2_i3pqv")]
-transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 0.17116511, 0.15586275, -0.6422)
+transform = Transform3D(-1.0927847e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.0927847e-08, 0.11087039, 0.31635788, -0.3521679)
+
+[node name="mesh" parent="gun/root" parent_id_path=PackedInt32Array(779666712, 1360884027) index="0" unique_id=1683403093]
+cast_shadow = 0
+
+[node name="mesh2" parent="gun/root" parent_id_path=PackedInt32Array(779666712, 1360884027) index="1" unique_id=384551369]
+cast_shadow = 0
+
+[node name="mesh3" parent="gun/root/hold" parent_id_path=PackedInt32Array(779666712, 760511534) index="0" unique_id=392895471]
+cast_shadow = 0
+
+[node name="mesh4" parent="gun/root/hold" parent_id_path=PackedInt32Array(779666712, 760511534) index="1" unique_id=1578256193]
+cast_shadow = 0
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=519085290]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
