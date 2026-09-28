@@ -24,8 +24,8 @@ point_count = 2
 curve = SubResource("Curve_evndh")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6s816"]
-angle_min = -360.0
-angle_max = 360.00003
+angle_min = 1.0728835e-05
+angle_max = 1.0000107
 gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("CurveTexture_evndh")
 color_ramp = SubResource("GradientTexture1D_h1q25")
@@ -67,11 +67,13 @@ script = ExtResource("3_evndh")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="gun/muzzle_flash" unique_id=380946211]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0075211823, 0.009739816, -0.0019637942)
+visible = false
 light_color = Color(0, 0.50694114, 0.6146783, 1)
 light_energy = 1.6
 omni_range = 3.7470906
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="gun/muzzle_flash" unique_id=1558928123]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.006901711, 0, 0)
 emitting = false
 amount = 1
 lifetime = 0.05

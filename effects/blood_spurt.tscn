@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://xjcj5tqrwxmc"]
+
+[ext_resource type="Texture2D" uid="uid://vy34nhkga76v" path="res://effects/blood_spurt.png" id="1_gkoe7"]
+[ext_resource type="Script" uid="uid://bh5j02553hscd" path="res://effects/bullet_impact.gd" id="2_27bt8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27bt8"]
+atlas = ExtResource("1_gkoe7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2m03"]
+atlas = ExtResource("1_gkoe7")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsp0s"]
+atlas = ExtResource("1_gkoe7")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgn5d"]
+atlas = ExtResource("1_gkoe7")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xdk5"]
+atlas = ExtResource("1_gkoe7")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_41f5n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27bt8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2m03")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsp0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgn5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xdk5")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="blood_spurt" type="AnimatedSprite3D" unique_id=1628521319]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+billboard = 2
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_41f5n")
+frame = 4
+frame_progress = 1.0
+script = ExtResource("2_27bt8")
