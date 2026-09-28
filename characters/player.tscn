@@ -66,10 +66,10 @@ transform = Transform3D(-1.7484555e-07, 0, -4, 0, 4, 0, 4, 0, -1.7484555e-07, 0.
 script = ExtResource("3_evndh")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="gun/muzzle_flash" unique_id=380946211]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0075211823, 0.009739816, -0.15844819)
-light_color = Color(0.6923119, 0.92631316, 1, 1)
-light_energy = 0.25
-omni_range = 2.0374382
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0075211823, 0.009739816, -0.0019637942)
+light_color = Color(0, 0.50694114, 0.6146783, 1)
+light_energy = 1.6
+omni_range = 3.7470906
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="gun/muzzle_flash" unique_id=1558928123]
 emitting = false
