@@ -41,9 +41,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func use():
-	print_debug("press use")
 	if use_raycast.is_colliding() and use_raycast.get_collider().has_method("get_used"):
-		use_raycast.get_collider().get_used()
+		if global_position.distance_squared_to(use_raycast.get_collision_point()) < 1:
+			use_raycast.get_collider().get_used()
 	
 
 func shoot():
@@ -60,6 +60,8 @@ func shoot():
 	effect_instance.global_position = hit_point + (hit_normal * 0.01)
 		
 
+func collect_item(name: String):
+	print_debug("picked up: "+ name)
 	
 	
 	

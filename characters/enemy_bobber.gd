@@ -8,6 +8,7 @@ extends CharacterBody3D
 @export var health = 2
 
 @onready var player : CharacterBody3D = get_tree().get_first_node_in_group("player")
+@export var orb: PackedScene = preload("res://objects/orb.tscn")
 
 var dead = false
 var state = ""
@@ -51,6 +52,8 @@ func handle_animation_finished():
 		state = "idle"
 		animated_Sprite_3d.play("move")
 	if state == "die":
+		# add soul, percentage 
+		
 		queue_free() # Removes the enemy from the scene tree and deletes it
 	
 func get_hurt():
@@ -62,6 +65,9 @@ func get_hurt():
 		state = "die"
 		animated_Sprite_3d.play("die")
 		$CollisionShape3D.disabled = true
+		var orb_instance = orb.instantiate()
+		get_tree().current_scene.add_child(orb_instance)
+		orb_instance.global_position = global_position
 	else:
 		state = "hurt"
 		animated_Sprite_3d.play("hurt")

@@ -13,7 +13,6 @@ func _ready() -> void:
 	animation_player.seek(0.5)
 
 func get_used():
-	print_debug("door got used")
 	if animation_player.is_playing():
 		return
 	is_open = !is_open

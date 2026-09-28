@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://ulwi511kmyca"]
+
+[ext_resource type="Script" uid="uid://ct03l8g70j2da" path="res://objects/orb.gd" id="1_3ycvi"]
+[ext_resource type="Texture2D" uid="uid://dxn6thwx1lrls" path="res://effects/soul.png" id="1_j0s63"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_41f5n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ycvi"]
+atlas = ExtResource("1_j0s63")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1flq"]
+atlas = ExtResource("1_j0s63")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wqbk"]
+atlas = ExtResource("1_j0s63")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6g23"]
+atlas = ExtResource("1_j0s63")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_41f5n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ycvi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1flq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wqbk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6g23")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_3ycvi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_i1flq"]
+resource_name = "pulse"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.54, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8wqbk"]
+_data = {
+&"RESET": SubResource("Animation_3ycvi"),
+&"pulse": SubResource("Animation_i1flq")
+}
+
+[node name="orb" type="Area3D" unique_id=636874022]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_3ycvi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1664933027]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.39812875, 0)
+shape = SubResource("SphereShape3D_41f5n")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=81911732]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.5184381, 0)
+billboard = 2
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_41f5n")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=626570304]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39901078, 0)
+light_color = Color(0.74050564, 0.9628995, 0.9582779, 1)
+omni_range = 0.6243622
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="OmniLight3D" unique_id=112019828]
+libraries/ = SubResource("AnimationLibrary_8wqbk")
+autoplay = &"pulse"

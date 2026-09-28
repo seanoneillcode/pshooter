@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://yoe66dnxn485" path="res://levels/show_on_run.gd" id="2_ac4rt"]
 [ext_resource type="PackedScene" uid="uid://d20k41rq74ocq" path="res://objects/door.tscn" id="3_ac4rt"]
 [ext_resource type="PackedScene" uid="uid://crfladbe727gk" path="res://characters/player.tscn" id="3_dxayl"]
+[ext_resource type="PackedScene" uid="uid://ulwi511kmyca" path="res://objects/orb.tscn" id="4_dxayl"]
 [ext_resource type="Texture2D" uid="uid://vkbbo121rynm" path="res://background.png" id="4_ur2xx"]
 [ext_resource type="Shader" uid="uid://br5lox8b1n2l2" path="res://palettes/palette_shader.gdshader" id="5_hbrsl"]
 [ext_resource type="Texture2D" uid="uid://c434b4unek0r7" path="res://palettes/zughy-32-1x.png" id="6_d46wd"]
@@ -125,6 +126,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.507214, 0, -7.4964743)
 
 [node name="door6" parent="environment/doors" unique_id=701255627 instance=ExtResource("3_ac4rt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.507214, 0, -17.496475)
+
+[node name="pickups" type="Node3D" parent="environment" unique_id=280073808]
+
+[node name="orb" parent="environment/pickups" unique_id=636874022 instance=ExtResource("4_dxayl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.4678087)
 
 [node name="player" parent="." unique_id=1922500395 instance=ExtResource("3_dxayl")]
 transform = Transform3D(-0.00947263, 0, 0.9999551, 0, 1, 0, -0.9999551, 0, -0.00947263, -0.46808243, 0, -0.0034313202)
