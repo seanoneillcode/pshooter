@@ -7,7 +7,7 @@ signal weapon_fired
 @onready var use_raycast = $UseRayCast
 @onready var health_label = $HUD/health
 @onready var energy_label = $HUD/energy
-
+@onready var flasher = $CanvasLayer/AnimationPlayer
 
 @export var impact_effect: PackedScene = preload("res://effects/bullet_impact.tscn")
 @export var blood_spurt_effect: PackedScene = preload("res://effects/blood_spurt.tscn")
@@ -81,6 +81,14 @@ func shoot():
 func collect_item(name: String):
 	if name =="orb":
 		current_energy += 1
+		flasher.play("energy_flash")
+	if name == "health":
+		current_health += 1
+		flasher.play("health_flash")
+
+func get_hurt():
+	current_health -= 1
+	flasher.play("hurt_flash")
 	
 	
 	

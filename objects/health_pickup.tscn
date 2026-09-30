@@ -1,72 +1,72 @@
-[gd_scene format=3 uid="uid://ulwi511kmyca"]
+[gd_scene format=3 uid="uid://bbukj6elt77rn"]
 
-[ext_resource type="Script" uid="uid://ct03l8g70j2da" path="res://objects/orb.gd" id="1_3ycvi"]
-[ext_resource type="Texture2D" uid="uid://dxn6thwx1lrls" path="res://effects/soul.png" id="1_j0s63"]
+[ext_resource type="Script" uid="uid://ct03l8g70j2da" path="res://objects/orb.gd" id="1_xsr1n"]
+[ext_resource type="Texture2D" uid="uid://dfw6a0miukink" path="res://objects/health_pickup.png" id="2_xsr1n"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_41f5n"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3ycvi"]
-atlas = ExtResource("1_j0s63")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsr1n"]
+atlas = ExtResource("2_xsr1n")
+region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i1flq"]
-atlas = ExtResource("1_j0s63")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_mak8a"]
+atlas = ExtResource("2_xsr1n")
+region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8wqbk"]
-atlas = ExtResource("1_j0s63")
-region = Rect2(64, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_0q65x"]
+atlas = ExtResource("2_xsr1n")
+region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o6g23"]
-atlas = ExtResource("1_j0s63")
-region = Rect2(96, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7esq"]
+atlas = ExtResource("2_xsr1n")
+region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5abfx"]
-atlas = ExtResource("1_j0s63")
-region = Rect2(128, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hxoi"]
+atlas = ExtResource("2_xsr1n")
+region = Rect2(256, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o1nl6"]
-atlas = ExtResource("1_j0s63")
-region = Rect2(160, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngtg2"]
+atlas = ExtResource("2_xsr1n")
+region = Rect2(320, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e5240"]
-atlas = ExtResource("1_j0s63")
-region = Rect2(192, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_4luca"]
+atlas = ExtResource("2_xsr1n")
+region = Rect2(384, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nmdns"]
-atlas = ExtResource("1_j0s63")
-region = Rect2(224, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_d71rc"]
+atlas = ExtResource("2_xsr1n")
+region = Rect2(448, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_41f5n"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3ycvi")
+"texture": SubResource("AtlasTexture_xsr1n")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i1flq")
+"texture": SubResource("AtlasTexture_mak8a")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8wqbk")
+"texture": SubResource("AtlasTexture_0q65x")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o6g23")
+"texture": SubResource("AtlasTexture_a7esq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5abfx")
+"texture": SubResource("AtlasTexture_6hxoi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o1nl6")
+"texture": SubResource("AtlasTexture_ngtg2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e5240")
+"texture": SubResource("AtlasTexture_4luca")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nmdns")
+"texture": SubResource("AtlasTexture_d71rc")
 }],
 "loop": 1,
 "name": &"default",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="Animation" id="Animation_3ycvi"]
@@ -107,27 +107,26 @@ _data = {
 &"pulse": SubResource("Animation_i1flq")
 }
 
-[node name="orb" type="Area3D" unique_id=636874022]
+[node name="health_pickup" type="Area3D" unique_id=636874022]
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("1_3ycvi")
-pickup_name = "orb"
+script = ExtResource("1_xsr1n")
+pickup_name = "health"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1664933027]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.39812875, 0)
 shape = SubResource("SphereShape3D_41f5n")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=81911732]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.4, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.49106553, 0)
 billboard = 2
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_41f5n")
-frame = 4
-frame_progress = 0.6643158
+frame_progress = 0.7993419
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=626570304]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4189583, 0)
-light_color = Color(0.74050564, 0.9628995, 0.9582779, 1)
+light_color = Color(0.9891643, 0.83304435, 0, 1)
 omni_range = 0.6243622
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="OmniLight3D" unique_id=112019828]
