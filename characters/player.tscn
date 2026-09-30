@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://bkeucvxe4e4x7" path="res://hud/crosshair.png" id="2_tory2"]
 [ext_resource type="Script" uid="uid://c3b2opvya0gi2" path="res://characters/muzzle_flash.gd" id="3_evndh"]
 [ext_resource type="Texture2D" uid="uid://cit7d7xdpvil7" path="res://effects/muzzle-flash.png" id="3_x0jl3"]
+[ext_resource type="FontFile" uid="uid://7w3u1ddia0oy" path="res://PressStart2P.ttf" id="6_h1q25"]
+[ext_resource type="Texture2D" uid="uid://c3115x0xt8qjp" path="res://hud/health-icon.png" id="7_6t23p"]
+[ext_resource type="Texture2D" uid="uid://bo0y2bmd3toxv" path="res://hud/energy-icon.png" id="8_n8jd0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_41f5n"]
 
@@ -45,6 +48,20 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_41f5n"]
 material = SubResource("StandardMaterial3D_vjr50")
 
+[sub_resource type="LabelSettings" id="LabelSettings_yf088"]
+font = ExtResource("6_h1q25")
+font_size = 8
+font_color = Color(0.9019608, 0.28235295, 0.18039216, 1)
+outline_size = 4
+outline_color = Color(0.1882353, 0.17254902, 0.18039216, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h1q25"]
+font = ExtResource("6_h1q25")
+font_size = 8
+font_color = Color(0.15686275, 0.8, 0.8745098, 1)
+outline_size = 4
+outline_color = Color(0.1882353, 0.17254902, 0.18039216, 1)
+
 [node name="player" type="CharacterBody3D" unique_id=1922500395 groups=["player"]]
 collision_layer = 2
 collision_mask = 3
@@ -60,6 +77,18 @@ fov = 60.0
 
 [node name="gun" parent="." unique_id=779666712 instance=ExtResource("2_i3pqv")]
 transform = Transform3D(-1.0927847e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.0927847e-08, 0.11087039, 0.31635788, -0.3521679)
+
+[node name="mesh" parent="gun/root" parent_id_path=PackedInt32Array(779666712, 1360884027) index="0" unique_id=1683403093]
+cast_shadow = 0
+
+[node name="mesh2" parent="gun/root" parent_id_path=PackedInt32Array(779666712, 1360884027) index="1" unique_id=384551369]
+cast_shadow = 0
+
+[node name="mesh3" parent="gun/root/hold" parent_id_path=PackedInt32Array(779666712, 760511534) index="0" unique_id=392895471]
+cast_shadow = 0
+
+[node name="mesh4" parent="gun/root/hold" parent_id_path=PackedInt32Array(779666712, 760511534) index="1" unique_id=1578256193]
+cast_shadow = 0
 
 [node name="muzzle_flash" type="Node3D" parent="gun" unique_id=1050437580]
 transform = Transform3D(-1.7484555e-07, 0, -4, 0, 4, 0, 4, 0, -1.7484555e-07, 0.25617754, 0.4806186, 0.17366362)
@@ -83,18 +112,6 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_6s816")
 draw_pass_1 = SubResource("QuadMesh_41f5n")
 
-[node name="mesh" parent="gun/root" parent_id_path=PackedInt32Array(779666712, 1360884027) index="0" unique_id=1683403093]
-cast_shadow = 0
-
-[node name="mesh2" parent="gun/root" parent_id_path=PackedInt32Array(779666712, 1360884027) index="1" unique_id=384551369]
-cast_shadow = 0
-
-[node name="mesh3" parent="gun/root/hold" parent_id_path=PackedInt32Array(779666712, 760511534) index="0" unique_id=392895471]
-cast_shadow = 0
-
-[node name="mesh4" parent="gun/root/hold" parent_id_path=PackedInt32Array(779666712, 760511534) index="1" unique_id=1578256193]
-cast_shadow = 0
-
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=519085290]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 target_position = Vector3(0, 0, -100)
@@ -104,7 +121,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 target_position = Vector3(0, 0, -100)
 collision_mask = 4
 
-[node name="Control" type="Control" parent="." unique_id=1636970700]
+[node name="HUD" type="Control" parent="." unique_id=1636970700]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -113,7 +130,7 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="Control" unique_id=2038451400]
+[node name="crosshair" type="TextureRect" parent="HUD" unique_id=2038451400]
 modulate = Color(1, 1, 1, 0.27058825)
 layout_mode = 0
 offset_left = 106.0
@@ -121,5 +138,43 @@ offset_top = 80.0
 offset_right = 107.0
 offset_bottom = 81.0
 texture = ExtResource("2_tory2")
+
+[node name="health" type="Label" parent="HUD" unique_id=334290111]
+texture_filter = 1
+layout_mode = 0
+offset_top = 151.0
+offset_right = 19.0
+offset_bottom = 165.0
+text = "9"
+label_settings = SubResource("LabelSettings_yf088")
+horizontal_alignment = 2
+
+[node name="energy" type="Label" parent="HUD" unique_id=528586729]
+texture_filter = 1
+layout_mode = 0
+offset_left = 31.0
+offset_top = 151.0
+offset_right = 50.0
+offset_bottom = 165.0
+theme_override_colors/font_color = Color(0, 0.46269888, 0.76387036, 1)
+text = "9"
+label_settings = SubResource("LabelSettings_h1q25")
+horizontal_alignment = 2
+
+[node name="health_icon" type="TextureRect" parent="HUD" unique_id=1892725835]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 148.0
+offset_right = 31.0
+offset_bottom = 159.0
+texture = ExtResource("7_6t23p")
+
+[node name="energy_icon" type="TextureRect" parent="HUD" unique_id=1579518575]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 149.0
+offset_right = 62.0
+offset_bottom = 160.0
+texture = ExtResource("8_n8jd0")
 
 [editable path="gun"]

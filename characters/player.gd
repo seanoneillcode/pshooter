@@ -5,9 +5,15 @@ signal weapon_fired
 @onready var animation_player = $gun/AnimationPlayer
 @onready var raycast_3d = $RayCast3D
 @onready var use_raycast = $UseRayCast
+@onready var health_label = $HUD/health
+@onready var energy_label = $HUD/energy
+
 
 @export var impact_effect: PackedScene = preload("res://effects/bullet_impact.tscn")
 @export var blood_spurt_effect: PackedScene = preload("res://effects/blood_spurt.tscn")
+
+@export var current_health = 4
+@export var current_energy = 0
 
 const SPEED = 3.0
 const MOUSE_SENSITIVITY = 0.4
@@ -29,6 +35,8 @@ func _process(delta):
 		shoot()
 	if Input.is_action_just_pressed("use"):
 		use()
+	health_label.text = "%s" % current_health 
+	energy_label.text = "%s" % current_energy
 
 func _physics_process(delta: float) -> void:
 
@@ -71,8 +79,8 @@ func shoot():
 	
 
 func collect_item(name: String):
-	print_debug("picked up: "+ name)
-	
+	if name =="orb":
+		current_energy += 1
 	
 	
 	
