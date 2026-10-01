@@ -164,9 +164,7 @@ billboard = 1
 shaded = true
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_41f5n")
-animation = &"move"
-frame = 3
-frame_progress = 0.010460953
+animation = &"attack"
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=1339351017]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

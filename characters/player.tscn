@@ -48,6 +48,66 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_41f5n"]
 material = SubResource("StandardMaterial3D_vjr50")
 
+[sub_resource type="Animation" id="Animation_q605b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_eho78"]
+resource_name = "collapse"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.5, 0), Vector3(0.4613614, 0.015669703, 0.30949432)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.89920753, -0.22407387, -0.516215)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8sqrr"]
+_data = {
+&"RESET": SubResource("Animation_q605b"),
+&"collapse": SubResource("Animation_eho78")
+}
+
 [sub_resource type="LabelSettings" id="LabelSettings_yf088"]
 font = ExtResource("6_h1q25")
 font_size = 8
@@ -87,6 +147,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8sqrr"]
+resource_name = "dead_flash"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.9254902, 0.13333334, 0.20392157, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.0333333, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.4862745), Color(1, 1, 1, 0.6039216)]
 }
 
 [sub_resource type="Animation" id="Animation_6t23p"]
@@ -176,6 +264,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6t23p"]
 _data = {
 &"RESET": SubResource("Animation_dxayl"),
+&"dead_flash": SubResource("Animation_8sqrr"),
 &"energy_flash": SubResource("Animation_6t23p"),
 &"health_flash": SubResource("Animation_n8jd0"),
 &"hurt_flash": SubResource("Animation_ur2xx")
@@ -191,36 +280,36 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5, 0)
 shape = SubResource("CapsuleShape3D_41f5n")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=303652254]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0.5, 0)
 fov = 60.0
 
-[node name="gun" parent="." unique_id=779666712 instance=ExtResource("2_i3pqv")]
-transform = Transform3D(-1.0927847e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.0927847e-08, 0.11087039, 0.31635788, -0.3521679)
+[node name="gun" parent="Camera3D" unique_id=779666712 instance=ExtResource("2_i3pqv")]
+transform = Transform3D(-1.0927847e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.0927847e-08, 0.11087039, -0.18364212, -0.3521679)
 
-[node name="mesh" parent="gun/root" parent_id_path=PackedInt32Array(779666712, 1360884027) index="0" unique_id=1683403093]
+[node name="mesh" parent="Camera3D/gun/root" parent_id_path=PackedInt32Array(779666712, 2052838501) index="0" unique_id=1474941035]
 cast_shadow = 0
 
-[node name="mesh2" parent="gun/root" parent_id_path=PackedInt32Array(779666712, 1360884027) index="1" unique_id=384551369]
+[node name="mesh2" parent="Camera3D/gun/root" parent_id_path=PackedInt32Array(779666712, 2052838501) index="1" unique_id=519482931]
 cast_shadow = 0
 
-[node name="mesh3" parent="gun/root/hold" parent_id_path=PackedInt32Array(779666712, 760511534) index="0" unique_id=392895471]
+[node name="mesh3" parent="Camera3D/gun/root/hold" parent_id_path=PackedInt32Array(779666712, 1685304558) index="0" unique_id=1166256484]
 cast_shadow = 0
 
-[node name="mesh4" parent="gun/root/hold" parent_id_path=PackedInt32Array(779666712, 760511534) index="1" unique_id=1578256193]
+[node name="mesh4" parent="Camera3D/gun/root/hold" parent_id_path=PackedInt32Array(779666712, 1685304558) index="1" unique_id=1466269061]
 cast_shadow = 0
 
-[node name="muzzle_flash" type="Node3D" parent="gun" unique_id=1050437580]
+[node name="muzzle_flash" type="Node3D" parent="Camera3D/gun" unique_id=1050437580]
 transform = Transform3D(-1.7484555e-07, 0, -4, 0, 4, 0, 4, 0, -1.7484555e-07, 0.25617754, 0.4806186, 0.17366362)
 script = ExtResource("3_evndh")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="gun/muzzle_flash" unique_id=380946211]
+[node name="OmniLight3D" type="OmniLight3D" parent="Camera3D/gun/muzzle_flash" unique_id=380946211]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0075211823, 0.009739816, -0.0019637942)
 visible = false
 light_color = Color(0, 0.50694114, 0.6146783, 1)
 light_energy = 1.6
 omni_range = 3.7470906
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="gun/muzzle_flash" unique_id=1558928123]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Camera3D/gun/muzzle_flash" unique_id=1558928123]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.006901711, 0, 0)
 emitting = false
 amount = 1
@@ -230,6 +319,9 @@ randomness = 1.0
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_6s816")
 draw_pass_1 = SubResource("QuadMesh_41f5n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D" unique_id=771221509]
+libraries/ = SubResource("AnimationLibrary_8sqrr")
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=519085290]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -311,4 +403,4 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.9254902, 0.13333334, 0.20392157, 1)
 
-[editable path="gun"]
+[editable path="Camera3D/gun"]

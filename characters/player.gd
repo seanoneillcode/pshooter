@@ -2,12 +2,13 @@ extends CharacterBody3D
 
 signal weapon_fired
 
-@onready var animation_player = $gun/AnimationPlayer
+@onready var gun_animator = $Camera3D/gun/AnimationPlayer
 @onready var raycast_3d = $RayCast3D
 @onready var use_raycast = $UseRayCast
 @onready var health_label = $HUD/health
 @onready var energy_label = $HUD/energy
 @onready var flasher = $CanvasLayer/AnimationPlayer
+@onready var camera_animator = $Camera3D/AnimationPlayer
 
 @export var impact_effect: PackedScene = preload("res://effects/bullet_impact.tscn")
 @export var blood_spurt_effect: PackedScene = preload("res://effects/blood_spurt.tscn")
@@ -15,13 +16,15 @@ signal weapon_fired
 @export var current_health = 4
 @export var current_energy = 0
 
+var current_weapon_damage = 1 # todo get this from current weapon
+
 const SPEED = 3.0
 const MOUSE_SENSITIVITY = 0.4
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	animation_player.play("idle")
-	animation_player.animation_set_next("shoot", "idle")
+	gun_animator.play("idle")
+	gun_animator.animation_set_next("shoot", "idle")
 
 	
 func _input(event):
@@ -29,17 +32,27 @@ func _input(event):
 		rotation_degrees.y -= event.relative.x * MOUSE_SENSITIVITY
 
 func _process(delta):
+	
+		
 	if Input.is_action_just_pressed("exit"):
 		get_tree().quit()
 	if Input.is_action_just_pressed("shoot"):
-		shoot()
+		if !is_alive():
+			get_tree().reload_current_scene()
+		else:
+			shoot()
 	if Input.is_action_just_pressed("use"):
-		use()
-	health_label.text = "%s" % current_health 
-	energy_label.text = "%s" % current_energy
+		if !is_alive():
+			get_tree().reload_current_scene()
+		else:
+			use()
+	if is_alive():
+		health_label.text = "%s" % current_health 
+		energy_label.text = "%s" % current_energy
 
 func _physics_process(delta: float) -> void:
-
+	if !is_alive():
+		return
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backwards")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
@@ -59,12 +72,12 @@ func use():
 
 func shoot():
 	weapon_fired.emit()
-	animation_player.play("shoot")
-	animation_player.seek(0)
+	gun_animator.play("shoot")
+	gun_animator.seek(0)
 	# create bullet
 	var hit_obj = false
-	if raycast_3d.is_colliding() and raycast_3d.get_collider().has_method("get_hurt"):
-		raycast_3d.get_collider().get_hurt()
+	if raycast_3d.is_colliding() and raycast_3d.get_collider().has_method("take_damage"):
+		raycast_3d.get_collider().take_damage(current_weapon_damage)
 		hit_obj = true
 	
 	var hit_point = raycast_3d.get_collision_point()
@@ -86,9 +99,17 @@ func collect_item(name: String):
 		current_health += 1
 		flasher.play("health_flash")
 
-func get_hurt():
-	current_health -= 1
+func take_damage(amount: int):
+	if !is_alive():
+		return
+	current_health -= amount
 	flasher.play("hurt_flash")
+	if current_health < 0:
+		camera_animator.play("collapse")
+		flasher.play("dead_flash")
+		gun_animator.play("dead")
+		gun_animator.seek(0)
 	
-	
+func is_alive():
+	return current_health >= 0
 	

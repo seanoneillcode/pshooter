@@ -2,7 +2,7 @@ extends Node3D
 
 @onready var muzzle_effect = $GPUParticles3D
 @onready var muzzle_light = $OmniLight3D
-@onready var player = $"../.."
+@onready var player = $"../../.."
 
 func _ready() -> void:
 	player.weapon_fired.connect(add_muzzle_flash)
