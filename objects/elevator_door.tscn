@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://c0yiy6g0x1epc"]
+
+[ext_resource type="PackedScene" uid="uid://iffti0p5fyo2" path="res://tilesets/ship/elevator_door.gltf" id="2_s45e3"]
+[ext_resource type="Script" uid="uid://u1uemwoyrx60" path="res://tilesets/ship/elevator_door.gd" id="3_c8pb2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_41f5n"]
+size = Vector3(2.01828, 1, 0.8824463)
+
+[node name="elevator_door" type="StaticBody3D" unique_id=1381597662]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("3_c8pb2")
+
+[node name="grab_use" type="CollisionShape3D" parent="." unique_id=504057761]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011856079, 0.5, 0)
+shape = SubResource("BoxShape3D_41f5n")
+
+[node name="physical_door" type="StaticBody3D" parent="." unique_id=1405928080]
+
+[node name="stop_movement" type="CollisionShape3D" parent="physical_door" unique_id=1847607285]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_41f5n")
+
+[node name="door_model" parent="." unique_id=634924701 instance=ExtResource("2_s45e3")]
+
+[node name="top" parent="door_model/root" parent_id_path=PackedInt32Array(634924701, 1742965820) index="2" unique_id=1703764413]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="bottom" parent="door_model/root" parent_id_path=PackedInt32Array(634924701, 1742965820) index="3" unique_id=1802847657]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[editable path="door_model"]

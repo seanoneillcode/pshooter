@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://71k2xpvhdmv6"]
+
+[ext_resource type="Script" uid="uid://ct7d4swktelhy" path="res://objects/computer.gd" id="1_glfkg"]
+[ext_resource type="PackedScene" uid="uid://dbkrm058gwkqj" path="res://scenes/inside.tscn" id="2_1a14g"]
+[ext_resource type="PackedScene" uid="uid://k3mw8xhss4yq" path="res://tilesets/ship/computer.gltf" id="2_q8wpg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_41f5n"]
+
+[node name="computer" type="StaticBody3D" unique_id=1381597662]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_glfkg")
+change_to_level = ExtResource("2_1a14g")
+
+[node name="stop_movement" type="CollisionShape3D" parent="." unique_id=1847607285]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_41f5n")
+
+[node name="model" parent="." unique_id=1816966009 instance=ExtResource("2_q8wpg")]
