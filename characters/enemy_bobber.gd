@@ -39,14 +39,12 @@ func _physics_process(delta: float) -> void:
 			raycast_3d.force_raycast_update()
 			if raycast_3d.is_colliding():
 				if raycast_3d.get_collider() == player:
-					print_debug("enemy has line of sight")
 					state = "move"
 	var move_towards_player = false
 	var distance = global_position.distance_to(player.global_position)
 	if state == "move":
 		move_towards_player = true
 		if distance < range_make_attack:
-			print_debug("tswitching to attack state")
 			state = "attack"
 			attack_timer = time_it_takes_to_attack
 			animated_Sprite_3d.play("attack")
