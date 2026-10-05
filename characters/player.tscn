@@ -8,6 +8,8 @@
 [ext_resource type="FontFile" uid="uid://7w3u1ddia0oy" path="res://PressStart2P.ttf" id="6_h1q25"]
 [ext_resource type="Texture2D" uid="uid://c3115x0xt8qjp" path="res://hud/health-icon.png" id="7_6t23p"]
 [ext_resource type="Texture2D" uid="uid://bo0y2bmd3toxv" path="res://hud/energy-icon.png" id="8_n8jd0"]
+[ext_resource type="Shader" uid="uid://br5lox8b1n2l2" path="res://palettes/palette_shader.gdshader" id="9_q605b"]
+[ext_resource type="Texture2D" uid="uid://c434b4unek0r7" path="res://palettes/zughy-32-1x.png" id="10_eho78"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_41f5n"]
 
@@ -270,6 +272,10 @@ _data = {
 &"hurt_flash": SubResource("Animation_ur2xx")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8sqrr"]
+shader = ExtResource("9_q605b")
+shader_parameter/palette = ExtResource("10_eho78")
+
 [node name="player" type="CharacterBody3D" unique_id=1922500395 groups=["player"]]
 collision_layer = 2
 collision_mask = 3
@@ -402,5 +408,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.9254902, 0.13333334, 0.20392157, 1)
+
+[node name="PaletteShader" type="ColorRect" parent="." unique_id=860643484]
+material = SubResource("ShaderMaterial_8sqrr")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(16.04, 12.039999)
 
 [editable path="Camera3D/gun"]

@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://8qniadj6jlna"]
+
+[ext_resource type="Texture2D" uid="uid://ddq1irjdia0ka" path="res://objects/elevator_light_up.png" id="1_k6cvt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfpgx"]
+atlas = ExtResource("1_k6cvt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqga5"]
+atlas = ExtResource("1_k6cvt")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2x27g"]
+atlas = ExtResource("1_k6cvt")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rilro"]
+atlas = ExtResource("1_k6cvt")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxqn7"]
+atlas = ExtResource("1_k6cvt")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6336"]
+atlas = ExtResource("1_k6cvt")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjyh2"]
+atlas = ExtResource("1_k6cvt")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2s6xd"]
+atlas = ExtResource("1_k6cvt")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_41f5n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfpgx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqga5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2x27g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rilro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxqn7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6336")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjyh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2s6xd")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="elevator_up" type="Node3D" unique_id=136433641]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=619282293]
+transform = Transform3D(3.125, 0, 0, 0, 3.125, 0, 0, 0, 3.125, 0, 0.5, 0)
+transparent = false
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_41f5n")

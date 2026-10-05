@@ -33,6 +33,11 @@ func _process(delta: float) -> void:
 			set_process(false)
 		ResourceLoader.THREAD_LOAD_LOADED:
 			loaded_resource = ResourceLoader.load_threaded_get(scene_path)
-			var new_level_instance = loaded_resource.instantiate()
-			hook_node.add_child(new_level_instance)
+			
+			#var new_level_instance = loaded_resource.instantiate()
+			#hook_node.add_child(new_level_instance)
 			load_finished.emit()
+
+func actual_change_tree():
+	if loaded_resource != null:
+		get_tree().change_scene_to_packed(loaded_resource)
