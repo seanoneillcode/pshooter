@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://brex1n60d85ey"]
+
+[ext_resource type="Texture2D" uid="uid://brfkp6jhxgesq" path="res://elevator_gui.png" id="1_srd2q"]
+[ext_resource type="Script" uid="uid://dungqbjqyaj2y" path="res://gui_elevator_menu.gd" id="1_sxafj"]
+
+[node name="elevator_menu" type="Control" unique_id=2115112646]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sxafj")
+
+[node name="bg" type="TextureRect" parent="." unique_id=638010892]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_srd2q")
+stretch_mode = 2
+
+[node name="data_selection_btn" type="Button" parent="bg" unique_id=1898262812]
+z_index = 2
+layout_mode = 0
+offset_left = 64.0
+offset_top = 101.0
+offset_right = 83.0
+offset_bottom = 109.0
+
+[node name="dorm_selection_btn" type="Button" parent="bg" unique_id=1973489466]
+z_index = 1
+layout_mode = 0
+offset_left = 64.0
+offset_top = 93.0
+offset_right = 83.0
+offset_bottom = 101.0
+
+[node name="lab_selection_btn" type="Button" parent="bg" unique_id=440355746]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 85.0
+offset_right = 83.0
+offset_bottom = 93.0
+
+[connection signal="pressed" from="bg/data_selection_btn" to="." method="_on_data_selection_btn_pressed"]
+[connection signal="pressed" from="bg/dorm_selection_btn" to="." method="_on_dorm_selection_btn_pressed"]
+[connection signal="pressed" from="bg/lab_selection_btn" to="." method="_on_lab_selection_btn_pressed"]

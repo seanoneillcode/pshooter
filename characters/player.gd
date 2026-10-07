@@ -35,7 +35,7 @@ func _process(delta):
 	
 		
 	if Input.is_action_just_pressed("exit"):
-		get_tree().quit()
+		get_tree().quit() # show menu
 	if Input.is_action_just_pressed("shoot"):
 		if !is_alive():
 			get_tree().reload_current_scene()

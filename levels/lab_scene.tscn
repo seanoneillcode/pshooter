@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://b1m34raapxy3b"]
+
+[ext_resource type="MeshLibrary" uid="uid://bhukfxfho76gc" path="res://tilesets/ship/ship_tile_lib.res" id="1_g5bob"]
+[ext_resource type="Script" uid="uid://yoe66dnxn485" path="res://levels/show_on_run.gd" id="2_kkjdf"]
+[ext_resource type="PackedScene" uid="uid://d20k41rq74ocq" path="res://objects/door.tscn" id="3_jkgav"]
+[ext_resource type="PackedScene" uid="uid://c0yiy6g0x1epc" path="res://objects/elevator_door.tscn" id="4_viiv0"]
+[ext_resource type="PackedScene" uid="uid://bbukj6elt77rn" path="res://objects/health_pickup.tscn" id="5_y678a"]
+[ext_resource type="PackedScene" uid="uid://bxh3dxwhmx7h2" path="res://characters/enemy_bobber.tscn" id="6_fe6wj"]
+[ext_resource type="Texture2D" uid="uid://vkbbo121rynm" path="res://background.png" id="7_jaltj"]
+[ext_resource type="PackedScene" uid="uid://71k2xpvhdmv6" path="res://objects/computer.tscn" id="8_5aysb"]
+[ext_resource type="Script" uid="uid://bo6pvmlqt2bxb" path="res://levels/indicators.gd" id="9_hbych"]
+[ext_resource type="PackedScene" uid="uid://8qniadj6jlna" path="res://objects/elevator_up.tscn" id="10_3vlte"]
+[ext_resource type="PackedScene" uid="uid://brex1n60d85ey" path="res://gui_elevator_menu.tscn" id="11_m7kga"]
+[ext_resource type="PackedScene" uid="uid://crfladbe727gk" path="res://characters/player.tscn" id="12_qsr2x"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_lsjop"]
+panorama = ExtResource("7_jaltj")
+filter = false
+
+[sub_resource type="Sky" id="Sky_onrkg"]
+sky_material = SubResource("PanoramaSkyMaterial_lsjop")
+
+[sub_resource type="Environment" id="Environment_iy4d5"]
+background_mode = 2
+background_color = Color(0.23171556, 0.45556074, 0.54406774, 1)
+sky = SubResource("Sky_onrkg")
+ambient_light_source = 2
+ambient_light_color = Color(0.46299332, 0.42518485, 0.42528668, 1)
+fog_density = 0.1164
+
+[node name="world" type="Node3D" unique_id=1244489731]
+
+[node name="environment" type="Node3D" parent="." unique_id=928277804]
+
+[node name="walls" type="GridMap" parent="environment" unique_id=834339702]
+mesh_library = ExtResource("1_g5bob")
+cell_size = Vector3(1, 1, 1)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(65510, 65517, 3, 65510, 65516, 3, 65510, 65515, 3, 65510, 65514, 655378, 65511, 65514, 8, 65512, 65514, 655368, 65513, 65514, 655373, 65512, 65516, 3, 65513, 65516, 3, 65513, 65515, 3, 65512, 65515, 3, 65511, 65515, 3, 65511, 65516, 3, 65512, 65513, 8, 65511, 65513, 8, 65511, 65512, 8, 65511, 65511, 8, 65512, 65511, 8, 65512, 65512, 8, 65510, 65513, 14, 65510, 65511, 14, 65510, 65512, 14, 65511, 65510, 14, 65512, 65510, 14, 65513, 65511, 14, 65513, 65512, 14, 65513, 65513, 14, 65509, 65515, 17, 65509, 65516, 17, 65509, 65517, 17, 65509, 65514, 1048589, 65509, 65518, 11, 65510, 65518, 1441809, 65511, 65518, 11, 65513, 65518, 11, 65514, 65518, 1441809, 65515, 65518, 11, 65515, 65517, 17, 65515, 65516, 17, 65515, 65515, 17, 65515, 65514, 11, 65514, 65514, 11, 65511, 65517, 3, 65512, 65517, 3, 65512, 65518, 3, 65513, 65517, 3, 65514, 65517, 3, 65514, 65516, 3, 65514, 65515, 3)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="ceiling" type="GridMap" parent="environment" unique_id=570444595]
+visible = false
+mesh_library = ExtResource("1_g5bob")
+cell_size = Vector3(1, 1, 1)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(65512, 65517, 655365, 65513, 65516, 655365, 65513, 65517, 655365, 65513, 65515, 655365, 65512, 65515, 655365, 65512, 65513, 15, 65512, 65514, 15, 65512, 65516, 655365, 65511, 65516, 655365, 65511, 65515, 655365, 65511, 65517, 655365, 65512, 65512, 15, 65512, 65511, 15, 65511, 65511, 15, 65511, 65512, 15, 65511, 65513, 15, 65511, 65514, 15, 65510, 65515, 655367, 65510, 65514, 15, 65510, 65517, 655365, 65510, 65516, 655365)
+}
+script = ExtResource("2_kkjdf")
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="doors" type="Node3D" parent="environment" unique_id=522768120]
+
+[node name="door6" parent="environment/doors" unique_id=701255627 instance=ExtResource("3_jkgav")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.507214, 0, -17.496475)
+
+[node name="elevator_door" parent="environment/doors" unique_id=851285542 instance=ExtResource("4_viiv0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -21.5)
+
+[node name="pickups" type="Node3D" parent="environment" unique_id=280073808]
+
+[node name="health_pickup3" parent="environment/pickups" unique_id=792789013 instance=ExtResource("5_y678a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.06292, 0.0054061413, -19.96822)
+
+[node name="lights" type="Node3D" parent="environment" unique_id=1849921435]
+
+[node name="OmniLight3D38" type="OmniLight3D" parent="environment/lights" unique_id=120158971]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.952612, 0.87107205, -24.398403)
+light_color = Color(0.6707608, 0.99953955, 0.20911315, 1)
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 3.2477129
+
+[node name="OmniLight3D39" type="OmniLight3D" parent="environment/lights" unique_id=2131019602]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.458961, 0.87107205, -14.652883)
+light_color = Color(0.88392204, 0.17449078, 1.92523e-07, 1)
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 5.074014
+
+[node name="OmniLight3D40" type="OmniLight3D" parent="environment/lights" unique_id=2003470641]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.458961, 0.87107205, -19.078838)
+light_color = Color(0.88392204, 0.17449078, 1.92523e-07, 1)
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 5.074014
+
+[node name="characters" type="Node3D" parent="environment" unique_id=99233367]
+
+[node name="enemy_bobber3" parent="environment/characters" unique_id=1387024443 instance=ExtResource("6_fe6wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.75807, 0, -15.277624)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="environment" unique_id=1024785320]
+environment = SubResource("Environment_iy4d5")
+
+[node name="objects" type="Node3D" parent="environment" unique_id=1896395854]
+
+[node name="indicators" type="Node3D" parent="environment/objects" unique_id=1932962124]
+script = ExtResource("9_hbych")
+
+[node name="elevator_up" parent="environment/objects/indicators" unique_id=136433641 instance=ExtResource("10_3vlte")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -24.973, 0, -24.5)
+
+[node name="elevator_up4" parent="environment/objects/indicators" unique_id=2103742880 instance=ExtResource("10_3vlte")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -24.973, 0, -22.5)
+
+[node name="elevator_up5" parent="environment/objects/indicators" unique_id=94888195 instance=ExtResource("10_3vlte")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -24.973, 0, -23.5)
+
+[node name="elevator_up2" parent="environment/objects/indicators" unique_id=997251768 instance=ExtResource("10_3vlte")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -23.017374, 0, -24.5)
+
+[node name="elevator_up3" parent="environment/objects/indicators" unique_id=932134974 instance=ExtResource("10_3vlte")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5, 0, -24.986374)
+
+[node name="elevator_up8" parent="environment/objects/indicators" unique_id=887523303 instance=ExtResource("10_3vlte")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5, 0, -24.986374)
+
+[node name="elevator_up6" parent="environment/objects/indicators" unique_id=159434499 instance=ExtResource("10_3vlte")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -23.017374, 0, -22.5)
+
+[node name="elevator_up7" parent="environment/objects/indicators" unique_id=1383080343 instance=ExtResource("10_3vlte")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -23.017374, 0, -23.5)
+
+[node name="computer" parent="environment/objects" unique_id=1381597662 node_paths=PackedStringArray("indicators", "door", "gui") instance=ExtResource("8_5aysb")]
+transform = Transform3D(0.3550881, 0, 0.35201198, 0, 0.5, 0, -0.35201198, 0, 0.3550881, -23.09928, 0.25, -24.85569)
+indicators = NodePath("../indicators")
+data_scene = &"uid://dhgfviy7vhyn7"
+dorm_scene = &"uid://bf3qy6vepi1v1"
+door = NodePath("../../doors/elevator_door")
+gui = NodePath("elevator_menu")
+
+[node name="elevator_menu" parent="environment/objects/computer" unique_id=2115112646 instance=ExtResource("11_m7kga")]
+visible = false
+
+[node name="player" parent="." unique_id=1922500395 instance=ExtResource("12_qsr2x")]
+transform = Transform3D(-0.00947263, 0, 0.9999551, 0, 1, 0, -0.9999551, 0, -0.00947263, -23.921892, 0, -23.130035)
