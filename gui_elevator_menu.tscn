@@ -2,6 +2,36 @@
 
 [ext_resource type="Texture2D" uid="uid://brfkp6jhxgesq" path="res://elevator_gui.png" id="1_srd2q"]
 [ext_resource type="Script" uid="uid://dungqbjqyaj2y" path="res://gui_elevator_menu.gd" id="1_sxafj"]
+[ext_resource type="Theme" uid="uid://5j1bh8ia7b7g" path="res://ship_theme.tres" id="2_rqyto"]
+[ext_resource type="Texture2D" uid="uid://c6o3kytayn0vd" path="res://hand-cursor.png" id="3_rqyto"]
+[ext_resource type="Script" uid="uid://kr7pjapt4exi" path="res://cursor.gd" id="4_8cjmb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqyto"]
+atlas = ExtResource("3_rqyto")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cjmb"]
+atlas = ExtResource("3_rqyto")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_41f5n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqyto")
+}],
+"loop": 1,
+"name": &"click",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cjmb")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="elevator_menu" type="Control" unique_id=2115112646]
 layout_mode = 3
@@ -27,23 +57,36 @@ z_index = 2
 layout_mode = 0
 offset_left = 64.0
 offset_top = 101.0
-offset_right = 83.0
-offset_bottom = 109.0
+offset_right = 85.0
+offset_bottom = 107.0
+theme = ExtResource("2_rqyto")
+text = "LAB"
 
 [node name="dorm_selection_btn" type="Button" parent="bg" unique_id=1973489466]
 z_index = 1
 layout_mode = 0
 offset_left = 64.0
-offset_top = 93.0
-offset_right = 83.0
-offset_bottom = 101.0
+offset_top = 94.0
+offset_right = 85.0
+offset_bottom = 100.0
+theme = ExtResource("2_rqyto")
+text = "DORM"
 
 [node name="lab_selection_btn" type="Button" parent="bg" unique_id=440355746]
+texture_filter = 1
 layout_mode = 0
 offset_left = 64.0
-offset_top = 85.0
-offset_right = 83.0
+offset_top = 87.0
+offset_right = 85.0
 offset_bottom = 93.0
+theme = ExtResource("2_rqyto")
+text = "DATA"
+
+[node name="cursor" type="AnimatedSprite2D" parent="." unique_id=1751985201]
+z_index = 2
+sprite_frames = SubResource("SpriteFrames_41f5n")
+offset = Vector2(11, 11)
+script = ExtResource("4_8cjmb")
 
 [connection signal="pressed" from="bg/data_selection_btn" to="." method="_on_data_selection_btn_pressed"]
 [connection signal="pressed" from="bg/dorm_selection_btn" to="." method="_on_dorm_selection_btn_pressed"]

@@ -7,6 +7,7 @@ extends Node3D
 @export var door: Node3D
 
 @export var gui: Node
+@export var player: Node3D
 
 
 func _ready() -> void:
@@ -14,9 +15,10 @@ func _ready() -> void:
 
 func get_used():
 	print_debug("got used")
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	gui.visible = true
 	gui.connect("selected", select_level)
+	player.set_process(false)
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
 func select_level(val: String):
 	print_debug("select level")
@@ -31,8 +33,8 @@ func select_level(val: String):
 func run_elevator(scene: StringName):
 	if scene == null:
 		return
-	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	gui.visible = false
+
 	indicators.start()
 	door.close()
 	SceneLoader.connect("load_finished", switch_level)

@@ -9,8 +9,6 @@ var use_sub_threads: bool = true # dubious
 var progress: Array = []
 var hook_node: Node3D = null
 
-@onready var levels_holder = $levels
-
 func _ready():
 	set_process(false)
 
@@ -26,7 +24,7 @@ func start_load():
 	if state == OK:
 		set_process(true)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var load_Status = ResourceLoader.load_threaded_get_status(scene_path, progress)
 	match load_Status:
 		ResourceLoader.THREAD_LOAD_INVALID_RESOURCE, ResourceLoader.THREAD_LOAD_FAILED:

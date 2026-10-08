@@ -31,8 +31,7 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		rotation_degrees.y -= event.relative.x * MOUSE_SENSITIVITY
 
-func _process(delta):
-	
+func _process(_delta):
 		
 	if Input.is_action_just_pressed("exit"):
 		get_tree().quit() # show menu
@@ -50,7 +49,7 @@ func _process(delta):
 		health_label.text = "%s" % current_health 
 		energy_label.text = "%s" % current_energy
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if !is_alive():
 		return
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backwards")
@@ -91,11 +90,11 @@ func shoot():
 	effect_instance.global_position = hit_point + (hit_normal * 0.1)
 	
 
-func collect_item(name: String):
-	if name =="orb":
+func collect_item(item_name: String):
+	if item_name =="orb":
 		current_energy += 1
 		flasher.play("energy_flash")
-	if name == "health":
+	if item_name == "health":
 		current_health += 1
 		flasher.play("health_flash")
 

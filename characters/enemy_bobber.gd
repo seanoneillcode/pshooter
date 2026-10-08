@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 @onready var animated_Sprite_3d = $AnimatedSprite3D
 @onready var raycast_3d = $RayCast3D
+@export var animated_cursor: AnimatedSprite2D
 
 @export var move_speed = 3.0
 @export var attack_Range = 12.0
@@ -17,20 +18,24 @@ var attack_timer = 0
 var dead = false
 var state = ""
 
+
+
 func _ready():
 	animated_Sprite_3d.connect("animation_finished", handle_animation_finished)
 	animated_Sprite_3d.play("move")
 	await get_tree().create_timer(0.1).timeout
 	state = "idle"
 
+	
+
 func _physics_process(delta: float) -> void:
 	if dead:
 		return
 	if player == null:
 		return
-		
+	
+	var distance = global_position.distance_to(player.global_position)
 	if state == "idle":
-		var distance = global_position.distance_to(player.global_position)
 		if distance < attack_Range:
 			# point the raycast at the player
 			var target_pos: Vector3 = raycast_3d.to_local(player.global_position + Vector3(0,0.5,0))
@@ -41,7 +46,6 @@ func _physics_process(delta: float) -> void:
 				if raycast_3d.get_collider() == player:
 					state = "move"
 	var move_towards_player = false
-	var distance = global_position.distance_to(player.global_position)
 	if state == "move":
 		move_towards_player = true
 		if distance < range_make_attack:
