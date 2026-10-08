@@ -112,14 +112,14 @@ _data = {
 
 [sub_resource type="LabelSettings" id="LabelSettings_yf088"]
 font = ExtResource("6_h1q25")
-font_size = 8
+font_size = 9
 font_color = Color(0.9019608, 0.28235295, 0.18039216, 1)
 outline_size = 4
 outline_color = Color(0.1882353, 0.17254902, 0.18039216, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_h1q25"]
 font = ExtResource("6_h1q25")
-font_size = 8
+font_size = 9
 font_color = Color(0.15686275, 0.8, 0.8745098, 1)
 outline_size = 4
 outline_color = Color(0.1882353, 0.17254902, 0.18039216, 1)
@@ -340,28 +340,35 @@ collision_mask = 4
 
 [node name="HUD" type="Control" parent="." unique_id=1636970700]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 220.0
+offset_bottom = 160.0
 metadata/_edit_use_anchors_ = true
 
 [node name="crosshair" type="TextureRect" parent="HUD" unique_id=2038451400]
 modulate = Color(1, 1, 1, 0.27058825)
-layout_mode = 0
-offset_left = 106.0
-offset_top = 80.0
-offset_right = 107.0
-offset_bottom = 81.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -0.5
+offset_right = 0.5
+offset_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-0.5, -0.5)
 texture = ExtResource("2_tory2")
 
 [node name="health" type="Label" parent="HUD" unique_id=334290111]
 texture_filter = 1
 layout_mode = 0
-offset_top = 151.0
+offset_top = 150.0
 offset_right = 19.0
-offset_bottom = 165.0
+offset_bottom = 164.0
 text = "9"
 label_settings = SubResource("LabelSettings_yf088")
 horizontal_alignment = 2
@@ -370,9 +377,9 @@ horizontal_alignment = 2
 texture_filter = 1
 layout_mode = 0
 offset_left = 31.0
-offset_top = 151.0
+offset_top = 150.0
 offset_right = 50.0
-offset_bottom = 165.0
+offset_bottom = 164.0
 theme_override_colors/font_color = Color(0, 0.46269888, 0.76387036, 1)
 text = "9"
 label_settings = SubResource("LabelSettings_h1q25")
@@ -402,20 +409,13 @@ libraries/ = SubResource("AnimationLibrary_6t23p")
 
 [node name="ScreenFlash" type="ColorRect" parent="CanvasLayer" unique_id=2023596886]
 modulate = Color(1, 1, 1, 0)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 220.0
+offset_bottom = 160.0
 color = Color(0.9254902, 0.13333334, 0.20392157, 1)
 
 [node name="PaletteShader" type="ColorRect" parent="." unique_id=860643484]
 material = SubResource("ShaderMaterial_8sqrr")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(16.04, 12.039999)
+offset_right = 220.0
+offset_bottom = 160.0
 
 [editable path="Camera3D/gun"]

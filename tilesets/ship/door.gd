@@ -4,6 +4,7 @@ extends Node3D
 @onready var collision_shape = $physical_door/stop_movement
 
 @export var is_open = false
+@export var is_locked = false
 
 var busy_changing_state = false
 var timer = Timer.new()
@@ -20,16 +21,27 @@ func close():
 	is_open = false
 	animation_player.play("close")
 	collision_shape.disabled = false
+	timer.start()
+
+func open():
+	is_open = true
+	animation_player.play("open")
+	collision_shape.disabled = true
+	
+func lock():
+	is_locked = true
+
+func unlock():
+	is_locked = false
 
 func get_used():
 	if animation_player.is_playing():
 		return
+	if is_locked:
+		return # play locked sound
 	is_open = !is_open
 	if is_open:
-		animation_player.play("open")
-		collision_shape.disabled = true
-		timer.start()
+		open()
 	else:
-		animation_player.play("close")
-		collision_shape.disabled = false
+		close()
 	

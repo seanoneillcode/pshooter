@@ -1,6 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://5j1bh8ia7b7g"]
 
-[ext_resource type="FontFile" uid="uid://7w3u1ddia0oy" path="res://PressStart2P.ttf" id="1_n1y7w"]
+[ext_resource type="FontFile" uid="uid://cqfqu6c6qy6lg" path="res://3x5-Microfont-Mono.ttf" id="1_n1y7w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_38tyu"]
 bg_color = Color(0.23529412, 0.34901962, 0.3372549, 1)
@@ -35,7 +35,7 @@ Button/constants/align_to_largest_stylebox = 0
 Button/constants/h_separation = 0
 Button/constants/icon_max_width = 0
 Button/constants/outline_size = 0
-Button/font_sizes/font_size = 4
+Button/font_sizes/font_size = 8
 Button/fonts/font = ExtResource("1_n1y7w")
 Button/styles/disabled = SubResource("StyleBoxFlat_38tyu")
 Button/styles/focus = SubResource("StyleBoxFlat_8cjmb")

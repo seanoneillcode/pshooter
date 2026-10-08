@@ -91,16 +91,11 @@ environment = SubResource("Environment_iy4d5")
 
 [node name="objects" type="Node3D" parent="environment" unique_id=1896395854]
 
-[node name="computer" parent="environment/objects" unique_id=113571965 node_paths=PackedStringArray("indicators", "door", "gui") instance=ExtResource("8_5pslh")]
+[node name="computer" parent="environment/objects" unique_id=113571965 node_paths=PackedStringArray("indicators", "door") instance=ExtResource("8_5pslh")]
 transform = Transform3D(0.3550881, 0, 0.35201198, 0, 0.5, 0, -0.35201198, 0, 0.3550881, -23.09928, 0.25, -24.85569)
 indicators = NodePath("../indicators")
-lab_scene = &"uid://b1m34raapxy3b"
-dorm_scene = &"uid://bf3qy6vepi1v1"
 door = NodePath("../../doors/elevator_door")
-gui = NodePath("elevator_menu")
-
-[node name="elevator_menu" parent="environment/objects/computer" unique_id=2115112646 instance=ExtResource("11_8o7pm")]
-visible = false
+elevator_menu = ExtResource("11_8o7pm")
 
 [node name="indicators" type="Node3D" parent="environment/objects" unique_id=1932962124]
 script = ExtResource("9_jfvdm")
@@ -130,4 +125,4 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -23.
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -23.017374, 0, -23.5)
 
 [node name="player" parent="." unique_id=1922500395 instance=ExtResource("12_q5lva")]
-transform = Transform3D(-0.00947263, 0, 0.9999551, 0, 1, 0, -0.9999551, 0, -0.00947263, -23.921892, 0, -23.130035)
+transform = Transform3D(0.67495346, 0, -0.73786044, 0, 1, 0, 0.73786044, 0, 0.67495346, -23.703327, 0, -24.2775)

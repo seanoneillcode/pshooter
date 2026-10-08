@@ -41,6 +41,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sxafj")
+data_scene = &"uid://dhgfviy7vhyn7"
+lab_scene = &"uid://b1m34raapxy3b"
+dorm_scene = &"uid://bf3qy6vepi1v1"
 
 [node name="bg" type="TextureRect" parent="." unique_id=638010892]
 layout_mode = 1
@@ -56,19 +59,41 @@ stretch_mode = 2
 z_index = 2
 layout_mode = 0
 offset_left = 64.0
-offset_top = 101.0
-offset_right = 85.0
-offset_bottom = 107.0
+offset_top = 84.0
+offset_right = 86.0
+offset_bottom = 90.0
 theme = ExtResource("2_rqyto")
-text = "LAB"
+text = "DATA"
+
+[node name="store_selection_btn" type="Button" parent="bg" unique_id=1222797339]
+z_index = 2
+layout_mode = 0
+offset_left = 64.0
+offset_top = 76.0
+offset_right = 86.0
+offset_bottom = 82.0
+theme = ExtResource("2_rqyto")
+disabled = true
+text = "STORE"
+
+[node name="comms_selection_btn" type="Button" parent="bg" unique_id=241203464]
+z_index = 2
+layout_mode = 0
+offset_left = 64.0
+offset_top = 68.0
+offset_right = 86.0
+offset_bottom = 74.0
+theme = ExtResource("2_rqyto")
+disabled = true
+text = "COMMS"
 
 [node name="dorm_selection_btn" type="Button" parent="bg" unique_id=1973489466]
 z_index = 1
 layout_mode = 0
 offset_left = 64.0
-offset_top = 94.0
-offset_right = 85.0
-offset_bottom = 100.0
+offset_top = 92.0
+offset_right = 86.0
+offset_bottom = 98.0
 theme = ExtResource("2_rqyto")
 text = "DORM"
 
@@ -76,11 +101,11 @@ text = "DORM"
 texture_filter = 1
 layout_mode = 0
 offset_left = 64.0
-offset_top = 87.0
-offset_right = 85.0
-offset_bottom = 93.0
+offset_top = 100.0
+offset_right = 86.0
+offset_bottom = 106.0
 theme = ExtResource("2_rqyto")
-text = "DATA"
+text = "LAB"
 
 [node name="cursor" type="AnimatedSprite2D" parent="." unique_id=1751985201]
 z_index = 2

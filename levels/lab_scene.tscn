@@ -59,6 +59,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.507214, 0, -17.496475)
 
 [node name="elevator_door" parent="environment/doors" unique_id=851285542 instance=ExtResource("4_viiv0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -21.5)
+is_open = true
 
 [node name="pickups" type="Node3D" parent="environment" unique_id=280073808]
 
@@ -125,16 +126,11 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -23.
 [node name="elevator_up7" parent="environment/objects/indicators" unique_id=1383080343 instance=ExtResource("10_3vlte")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -23.017374, 0, -23.5)
 
-[node name="computer" parent="environment/objects" unique_id=1381597662 node_paths=PackedStringArray("indicators", "door", "gui") instance=ExtResource("8_5aysb")]
+[node name="computer" parent="environment/objects" unique_id=1381597662 node_paths=PackedStringArray("indicators", "door") instance=ExtResource("8_5aysb")]
 transform = Transform3D(0.3550881, 0, 0.35201198, 0, 0.5, 0, -0.35201198, 0, 0.3550881, -23.09928, 0.25, -24.85569)
 indicators = NodePath("../indicators")
-data_scene = &"uid://dhgfviy7vhyn7"
-dorm_scene = &"uid://bf3qy6vepi1v1"
 door = NodePath("../../doors/elevator_door")
-gui = NodePath("elevator_menu")
-
-[node name="elevator_menu" parent="environment/objects/computer" unique_id=2115112646 instance=ExtResource("11_m7kga")]
-visible = false
+elevator_menu = ExtResource("11_m7kga")
 
 [node name="player" parent="." unique_id=1922500395 instance=ExtResource("12_qsr2x")]
-transform = Transform3D(-0.00947263, 0, 0.9999551, 0, 1, 0, -0.9999551, 0, -0.00947263, -23.921892, 0, -23.130035)
+transform = Transform3D(0.70337385, 0, -0.7108202, 0, 1, 0, 0.7108202, 0, 0.70337385, -23.766138, 0, -24.243902)
