@@ -21,12 +21,13 @@ func close():
 	is_open = false
 	animation_player.play("close")
 	collision_shape.disabled = false
-	timer.start()
+	
 
 func open():
 	is_open = true
 	animation_player.play("open")
 	collision_shape.disabled = true
+	timer.start()
 	
 func lock():
 	is_locked = true

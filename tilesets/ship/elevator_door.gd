@@ -7,15 +7,21 @@ extends Node3D
 @export var is_locked = false
 
 var busy_changing_state = false
+var timer = Timer.new()
 
 func _ready() -> void:
 	animation_player.play("close")
 	animation_player.seek(0.5)
+	timer.wait_time = 6
+	timer.one_shot = true
+	add_child(timer)
+	timer.timeout.connect(close)
 
 func open():
 	is_open = true
 	animation_player.play("open")
 	collision_shape.disabled = true
+	timer.start()
 
 func close():
 	is_open = false

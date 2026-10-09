@@ -8,8 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bxh3dxwhmx7h2" path="res://characters/enemy_bobber.tscn" id="6_2ao73"]
 [ext_resource type="Texture2D" uid="uid://vkbbo121rynm" path="res://background.png" id="7_yu3hk"]
 [ext_resource type="PackedScene" uid="uid://71k2xpvhdmv6" path="res://objects/computer.tscn" id="8_5pslh"]
-[ext_resource type="Script" uid="uid://bo6pvmlqt2bxb" path="res://levels/indicators.gd" id="9_jfvdm"]
-[ext_resource type="PackedScene" uid="uid://8qniadj6jlna" path="res://objects/elevator_up.tscn" id="10_jq156"]
 [ext_resource type="PackedScene" uid="uid://brex1n60d85ey" path="res://gui_elevator_menu.tscn" id="11_8o7pm"]
 [ext_resource type="PackedScene" uid="uid://crfladbe727gk" path="res://characters/player.tscn" id="12_q5lva"]
 
@@ -91,38 +89,10 @@ environment = SubResource("Environment_iy4d5")
 
 [node name="objects" type="Node3D" parent="environment" unique_id=1896395854]
 
-[node name="computer" parent="environment/objects" unique_id=113571965 node_paths=PackedStringArray("indicators", "door") instance=ExtResource("8_5pslh")]
+[node name="computer" parent="environment/objects" unique_id=113571965 node_paths=PackedStringArray("door") instance=ExtResource("8_5pslh")]
 transform = Transform3D(0.3550881, 0, 0.35201198, 0, 0.5, 0, -0.35201198, 0, 0.3550881, -23.09928, 0.25, -24.85569)
-indicators = NodePath("../indicators")
 door = NodePath("../../doors/elevator_door")
 elevator_menu = ExtResource("11_8o7pm")
-
-[node name="indicators" type="Node3D" parent="environment/objects" unique_id=1932962124]
-script = ExtResource("9_jfvdm")
-
-[node name="elevator_up" parent="environment/objects/indicators" unique_id=136433641 instance=ExtResource("10_jq156")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -24.973, 0, -24.5)
-
-[node name="elevator_up4" parent="environment/objects/indicators" unique_id=2103742880 instance=ExtResource("10_jq156")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -24.973, 0, -22.5)
-
-[node name="elevator_up5" parent="environment/objects/indicators" unique_id=94888195 instance=ExtResource("10_jq156")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -24.973, 0, -23.5)
-
-[node name="elevator_up2" parent="environment/objects/indicators" unique_id=997251768 instance=ExtResource("10_jq156")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -23.017374, 0, -24.5)
-
-[node name="elevator_up3" parent="environment/objects/indicators" unique_id=932134974 instance=ExtResource("10_jq156")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5, 0, -24.986374)
-
-[node name="elevator_up8" parent="environment/objects/indicators" unique_id=887523303 instance=ExtResource("10_jq156")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5, 0, -24.986374)
-
-[node name="elevator_up6" parent="environment/objects/indicators" unique_id=159434499 instance=ExtResource("10_jq156")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -23.017374, 0, -22.5)
-
-[node name="elevator_up7" parent="environment/objects/indicators" unique_id=1383080343 instance=ExtResource("10_jq156")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -23.017374, 0, -23.5)
 
 [node name="player" parent="." unique_id=1922500395 instance=ExtResource("12_q5lva")]
 transform = Transform3D(0.67495346, 0, -0.73786044, 0, 1, 0, 0.73786044, 0, 0.67495346, -23.703327, 0, -24.2775)
