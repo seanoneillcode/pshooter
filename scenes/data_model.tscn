@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://d4jrevka220vp"]
+
+[ext_resource type="PackedScene" uid="uid://74xbtmyabht8" path="res://tilesets/ship/station_model_data.gltf" id="1_2aufr"]
+[ext_resource type="Material" uid="uid://bv2qc45hibnbj" path="res://scenes/model_mat.tres" id="2_jvx1i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_41f5n"]
+size = Vector3(1.72406, 0.1583252, 0.8267822)
+
+[node name="data_model" unique_id=631626659 instance=ExtResource("1_2aufr")]
+
+[node name="mesh" parent="." index="0" unique_id=194854826]
+surface_material_override/0 = ExtResource("2_jvx1i")
+
+[node name="mesh2" parent="." index="1" unique_id=513548531]
+surface_material_override/0 = ExtResource("2_jvx1i")
+
+[node name="mesh3" parent="." index="2" unique_id=127772324]
+surface_material_override/0 = ExtResource("2_jvx1i")
+
+[node name="mesh4" parent="." index="3" unique_id=1089902403]
+surface_material_override/0 = ExtResource("2_jvx1i")
+
+[node name="mesh5" parent="." index="4" unique_id=1919409042]
+surface_material_override/0 = ExtResource("2_jvx1i")
+
+[node name="mesh6" parent="." index="5" unique_id=1822261393]
+surface_material_override/0 = ExtResource("2_jvx1i")
+
+[node name="mesh7" parent="." index="6" unique_id=885168342]
+surface_material_override/0 = ExtResource("2_jvx1i")
+
+[node name="mesh8" parent="." index="7" unique_id=929509795]
+surface_material_override/0 = ExtResource("2_jvx1i")
+
+[node name="mesh9" parent="." index="8" unique_id=2127158950]
+surface_material_override/0 = ExtResource("2_jvx1i")
+
+[node name="mesh10" parent="." index="9" unique_id=1325333646]
+surface_material_override/0 = ExtResource("2_jvx1i")
+
+[node name="mesh11" parent="." index="10" unique_id=1481226970]
+surface_material_override/0 = ExtResource("2_jvx1i")
+
+[node name="mesh12" parent="." index="11" unique_id=1658219956]
+surface_material_override/0 = ExtResource("2_jvx1i")
+
+[node name="Area3D" type="Area3D" parent="." index="12" unique_id=460283373]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=1094401691]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.90560913, 0.6947632, 0.21783447)
+shape = SubResource("BoxShape3D_41f5n")

@@ -5,6 +5,10 @@
 [ext_resource type="Theme" uid="uid://5j1bh8ia7b7g" path="res://ship_theme.tres" id="2_rqyto"]
 [ext_resource type="Texture2D" uid="uid://c6o3kytayn0vd" path="res://hand-cursor.png" id="3_rqyto"]
 [ext_resource type="Script" uid="uid://kr7pjapt4exi" path="res://cursor.gd" id="4_8cjmb"]
+[ext_resource type="PackedScene" uid="uid://88sk3hor4ft5" path="res://scenes/station_model_import.tscn" id="6_im5cv"]
+[ext_resource type="Script" uid="uid://ct4umbym1ssng" path="res://scenes/station_model.gd" id="7_uit77"]
+[ext_resource type="Script" uid="uid://chrq3mh0bqx35" path="res://model_object.gd" id="8_uit77"]
+[ext_resource type="Material" uid="uid://b02c4v26r53b0" path="res://scenes/highlight_material.tres" id="9_pigfm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rqyto"]
 atlas = ExtResource("3_rqyto")
@@ -32,6 +36,12 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="Environment" id="Environment_pigfm"]
+background_mode = 1
+background_color = Color(0.1882353, 0.17254902, 0.18039216, 1)
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
 
 [node name="elevator_menu" type="Control" unique_id=2115112646]
 layout_mode = 3
@@ -109,10 +119,63 @@ text = "LAB"
 
 [node name="cursor" type="AnimatedSprite2D" parent="." unique_id=1751985201]
 z_index = 2
+position = Vector2(129, 38)
 sprite_frames = SubResource("SpriteFrames_41f5n")
 offset = Vector2(11, 11)
 script = ExtResource("4_8cjmb")
 
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1493166336]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 45.0
+offset_right = 184.0
+offset_bottom = 109.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1974351853]
+handle_input_locally = false
+physics_object_picking = true
+size = Vector2i(107, 64)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=384133666]
+transform = Transform3D(1, 0, 0, 0, 0.9058931, 0.42350656, 0, -0.42350656, 0.9058931, 0, 2.378044, 3.118535)
+environment = SubResource("Environment_pigfm")
+fov = 39.4
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1445245989]
+
+[node name="station_model_import" parent="Node3D" unique_id=1578584206 instance=ExtResource("6_im5cv")]
+script = ExtResource("7_uit77")
+
+[node name="dorm" parent="Node3D/station_model_import" index="1" unique_id=1898555027]
+script = ExtResource("8_uit77")
+highlightMat = ExtResource("9_pigfm")
+
+[node name="store" parent="Node3D/station_model_import" index="2" unique_id=1500435515]
+script = ExtResource("8_uit77")
+highlightMat = ExtResource("9_pigfm")
+
+[node name="comms" parent="Node3D/station_model_import" index="3" unique_id=2121266234]
+script = ExtResource("8_uit77")
+highlightMat = ExtResource("9_pigfm")
+
+[node name="data" parent="Node3D/station_model_import" index="4" unique_id=388652440]
+script = ExtResource("8_uit77")
+highlightMat = ExtResource("9_pigfm")
+
+[node name="lab" parent="Node3D/station_model_import" index="5" unique_id=477182725]
+script = ExtResource("8_uit77")
+highlightMat = ExtResource("9_pigfm")
+
+[connection signal="mouse_entered" from="bg/data_selection_btn" to="Node3D/station_model_import/data" method="_on_selection_btn_mouse_entered"]
+[connection signal="mouse_exited" from="bg/data_selection_btn" to="Node3D/station_model_import/data" method="_on_selection_btn_mouse_exited"]
 [connection signal="pressed" from="bg/data_selection_btn" to="." method="_on_data_selection_btn_pressed"]
+[connection signal="mouse_entered" from="bg/dorm_selection_btn" to="Node3D/station_model_import/dorm" method="_on_selection_btn_mouse_entered"]
+[connection signal="mouse_exited" from="bg/dorm_selection_btn" to="Node3D/station_model_import/dorm" method="_on_selection_btn_mouse_exited"]
 [connection signal="pressed" from="bg/dorm_selection_btn" to="." method="_on_dorm_selection_btn_pressed"]
+[connection signal="mouse_entered" from="bg/lab_selection_btn" to="Node3D/station_model_import/lab" method="_on_selection_btn_mouse_entered"]
+[connection signal="mouse_exited" from="bg/lab_selection_btn" to="Node3D/station_model_import/lab" method="_on_selection_btn_mouse_exited"]
 [connection signal="pressed" from="bg/lab_selection_btn" to="." method="_on_lab_selection_btn_pressed"]
+
+[editable path="Node3D/station_model_import"]

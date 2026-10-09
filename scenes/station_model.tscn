@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dpuil26pa6h4"]
+
+[ext_resource type="Script" uid="uid://ct4umbym1ssng" path="res://scenes/station_model.gd" id="1_p5tn4"]
+[ext_resource type="PackedScene" uid="uid://88sk3hor4ft5" path="res://scenes/station_model_import.tscn" id="2_n5bvc"]
+
+[sub_resource type="Environment" id="Environment_o350a"]
+background_mode = 1
+background_color = Color(0.1882353, 0.17254902, 0.18039216, 1)
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+
+[node name="station_model" type="Node3D" unique_id=1822685568]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=949558396]
+transform = Transform3D(1, 0, 0, 0, 0.9058931, 0.42350656, 0, -0.42350656, 0.9058931, 0, 2.8730521, 4.274108)
+environment = SubResource("Environment_o350a")
+fov = 39.4
+
+[node name="station_model_import" parent="." unique_id=1578584206 instance=ExtResource("2_n5bvc")]
+script = ExtResource("1_p5tn4")
+
+[editable path="station_model_import"]

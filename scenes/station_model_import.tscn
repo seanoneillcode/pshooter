@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://88sk3hor4ft5"]
+
+[ext_resource type="PackedScene" uid="uid://bft6axx41o22u" path="res://tilesets/ship/station_model.gltf" id="1_v16cw"]
+[ext_resource type="Material" uid="uid://b02c4v26r53b0" path="res://scenes/highlight_material.tres" id="2_60ies"]
+[ext_resource type="Material" uid="uid://bv2qc45hibnbj" path="res://scenes/model_mat.tres" id="2_aliqj"]
+[ext_resource type="Material" uid="uid://dsn53lrrygpd" path="res://scenes/disabled_material.tres" id="4_67snb"]
+
+[node name="station_model_import" unique_id=1578584206 instance=ExtResource("1_v16cw")]
+
+[node name="elevator" parent="." index="0" unique_id=995530742]
+surface_material_override/0 = ExtResource("2_60ies")
+
+[node name="dorm" parent="." index="1" unique_id=1898555027]
+surface_material_override/0 = ExtResource("2_aliqj")
+
+[node name="store" parent="." index="2" unique_id=1500435515]
+surface_material_override/0 = ExtResource("4_67snb")
+
+[node name="comms" parent="." index="3" unique_id=2121266234]
+surface_material_override/0 = ExtResource("4_67snb")
+
+[node name="data" parent="." index="4" unique_id=388652440]
+surface_material_override/0 = ExtResource("2_aliqj")
+
+[node name="lab" parent="." index="5" unique_id=477182725]
+surface_material_override/0 = ExtResource("2_aliqj")
+
+[node name="backup" parent="." index="6" unique_id=750237250]
+surface_material_override/0 = ExtResource("4_67snb")

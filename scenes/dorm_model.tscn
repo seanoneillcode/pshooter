@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b0fwrlbrfx0q3"]
+
+[ext_resource type="PackedScene" uid="uid://1s08esbucta3" path="res://tilesets/ship/station_model_dorm.gltf" id="1_5jb73"]
+[ext_resource type="Material" uid="uid://bv2qc45hibnbj" path="res://scenes/model_mat.tres" id="2_pqwtq"]
+
+[node name="dorm_model" unique_id=91845707 instance=ExtResource("1_5jb73")]
+
+[node name="mesh" parent="." index="0" unique_id=765614713]
+surface_material_override/0 = ExtResource("2_pqwtq")
+
+[node name="mesh2" parent="." index="1" unique_id=98821182]
+surface_material_override/0 = ExtResource("2_pqwtq")
+
+[node name="mesh3" parent="." index="2" unique_id=112069387]
+surface_material_override/0 = ExtResource("2_pqwtq")
+
+[node name="mesh4" parent="." index="3" unique_id=982694513]
+surface_material_override/0 = ExtResource("2_pqwtq")
+
+[node name="mesh5" parent="." index="4" unique_id=1548206366]
+surface_material_override/0 = ExtResource("2_pqwtq")
+
+[node name="mesh6" parent="." index="5" unique_id=420836633]
+surface_material_override/0 = ExtResource("2_pqwtq")
+
+[node name="mesh7" parent="." index="6" unique_id=985459572]
+surface_material_override/0 = ExtResource("2_pqwtq")
+
+[node name="mesh8" parent="." index="7" unique_id=1769219735]
+surface_material_override/0 = ExtResource("2_pqwtq")
+
+[node name="mesh9" parent="." index="8" unique_id=1422901813]
+surface_material_override/0 = ExtResource("2_pqwtq")
