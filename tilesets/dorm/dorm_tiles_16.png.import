@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r4pfi8cl8k0w"
-path.s3tc="res://.godot/imported/dorm_tiles_5.png-0a80b6726b89642c4978f8f0a94ea8b6.s3tc.ctex"
+uid="uid://b78hr6inq87l2"
+path.s3tc="res://.godot/imported/dorm_tiles_16.png-e33f3cb2ef15be6a33209c0cb719d451.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "21525eeb7fed2eb8227a02a44142c742"
+"md5": "367e844e0abc99405f2556a97672914f"
 }
 
 [deps]
 
-source_file="res://tilesets/dorm/dorm_tiles_5.png"
-dest_files=["res://.godot/imported/dorm_tiles_5.png-0a80b6726b89642c4978f8f0a94ea8b6.s3tc.ctex"]
+source_file="res://tilesets/dorm/dorm_tiles_16.png"
+dest_files=["res://.godot/imported/dorm_tiles_16.png-e33f3cb2ef15be6a33209c0cb719d451.s3tc.ctex"]
 
 [params]
 
