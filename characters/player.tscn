@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://drf4mxeksije2" path="res://characters/player.gd" id="1_onrkg"]
 [ext_resource type="PackedScene" uid="uid://c86u5vvopu48t" path="res://hud/gunarm.gltf" id="2_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://bkeucvxe4e4x7" path="res://hud/crosshair.png" id="2_tory2"]
+[ext_resource type="Texture2D" uid="uid://dhboe0jwr5bc2" path="res://hud/texture_blastergun.png" id="3_eho78"]
 [ext_resource type="Script" uid="uid://c3b2opvya0gi2" path="res://characters/muzzle_flash.gd" id="3_evndh"]
 [ext_resource type="Texture2D" uid="uid://cit7d7xdpvil7" path="res://effects/muzzle-flash.png" id="3_x0jl3"]
 [ext_resource type="FontFile" uid="uid://7w3u1ddia0oy" path="res://PressStart2P.ttf" id="6_h1q25"]
@@ -12,6 +13,151 @@
 [ext_resource type="Texture2D" uid="uid://c434b4unek0r7" path="res://palettes/zughy-32-1x.png" id="10_eho78"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_41f5n"]
+
+[sub_resource type="Animation" id="Animation_6rrl0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.744]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../mesh5:surface_material_override/0:albedo_color:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../mesh5:surface_material_override/0:albedo_color:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../mesh5:surface_material_override/0:albedo_color:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../mesh5:surface_material_override/0:albedo_color:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_eus45"]
+resource_name = "dim"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.05, 0.1, 1.744]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../mesh5:surface_material_override/0")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../mesh5:surface_material_override/0:albedo_color:r")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(2, 2, 0),
+"points": PackedFloat32Array(0.7394133, 0, 0, 0.053333335, 0.043431114, 1, -0.053333335, -0.08658824, 0.030000001, 0.048705883, 1, -0.083333336, -0.13529412, 0, 0),
+"times": PackedFloat32Array(0, 0.32, 0.5)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../mesh5:surface_material_override/0:albedo_color:g")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2),
+"points": PackedFloat32Array(0.13605157, 0, 0, 0.053333335, 0.14399143, 1, -0.053333335, -0.08826144, 0.030000001, 0.049647063, 1, -0.083333336, -0.1379085, 0, 0),
+"times": PackedFloat32Array(0, 0.32, 0.5)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../mesh5:surface_material_override/0:albedo_color:b")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2),
+"points": PackedFloat32Array(0.31406972, 0, 0, 0.053333335, 0.11432171, 1, -0.053333335, -0.08742484, 0.030000001, 0.049176473, 1, -0.083333336, -0.13660131, 0, 0),
+"times": PackedFloat32Array(0, 0.32, 0.5)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../mesh5:surface_material_override/0:albedo_color:a")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2),
+"points": PackedFloat32Array(1, 0, 0, 0.053333335, 0, 1, -0.053333335, 0, 0.030000001, 0, 1, -0.083333336, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.32, 0.5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vcag3"]
+_data = {
+&"RESET": SubResource("Animation_6rrl0"),
+&"dim": SubResource("Animation_eus45")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dyry2"]
+shading_mode = 0
+albedo_texture = ExtResource("3_eho78")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eho78"]
+shading_mode = 0
+albedo_texture = ExtResource("3_eho78")
 
 [sub_resource type="Gradient" id="Gradient_x0jl3"]
 offsets = PackedFloat32Array(0, 0.70342207, 1)
@@ -292,17 +438,38 @@ fov = 60.0
 [node name="gun" parent="Camera3D" unique_id=779666712 instance=ExtResource("2_i3pqv")]
 transform = Transform3D(-1.0927847e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.0927847e-08, 0.11087039, -0.18364212, -0.3521679)
 
-[node name="mesh" parent="Camera3D/gun/root" parent_id_path=PackedInt32Array(779666712, 2052838501) index="0" unique_id=1474941035]
+[node name="mesh" parent="Camera3D/gun/root" parent_id_path=PackedInt32Array(779666712, 77392049) index="0" unique_id=1724177929]
 cast_shadow = 0
 
-[node name="mesh2" parent="Camera3D/gun/root" parent_id_path=PackedInt32Array(779666712, 2052838501) index="1" unique_id=519482931]
+[node name="mesh2" parent="Camera3D/gun/root" parent_id_path=PackedInt32Array(779666712, 77392049) index="1" unique_id=456253238]
 cast_shadow = 0
 
-[node name="mesh3" parent="Camera3D/gun/root/hold" parent_id_path=PackedInt32Array(779666712, 1685304558) index="0" unique_id=1166256484]
+[node name="mesh3" parent="Camera3D/gun/root/hold" parent_id_path=PackedInt32Array(779666712, 1420444378) index="0" unique_id=211282165]
 cast_shadow = 0
 
-[node name="mesh4" parent="Camera3D/gun/root/hold" parent_id_path=PackedInt32Array(779666712, 1685304558) index="1" unique_id=1466269061]
+[node name="mesh4" parent="Camera3D/gun/root/hold" parent_id_path=PackedInt32Array(779666712, 1420444378) index="1" unique_id=977512408]
 cast_shadow = 0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Camera3D/gun/root/hold/spinner" parent_id_path=PackedInt32Array(779666712, 1326943996) index="0" unique_id=1131373763]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.10833967, -0.014713526, -0.017712057)
+light_color = Color(0.5188651, 0.8344676, 0.9948881, 0)
+light_energy = 1.744
+shadow_bias = 0.01
+shadow_normal_bias = 0.0
+omni_range = 0.11830415
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D/gun/root/hold/spinner/OmniLight3D" unique_id=441804649]
+libraries/ = SubResource("AnimationLibrary_vcag3")
+
+[node name="mesh5" parent="Camera3D/gun/root/hold/spinner" parent_id_path=PackedInt32Array(779666712, 1326943996) index="1" unique_id=976850219]
+surface_material_override/0 = SubResource("StandardMaterial3D_dyry2")
+
+[node name="indicator" parent="Camera3D/gun/root/hold" parent_id_path=PackedInt32Array(779666712, 1420444378) index="3" unique_id=402023913]
+transform = Transform3D(0.99904823, 0.043619383, 0, -0.043619383, 0.99904823, 0, 0, 0, 1, -0.1875, 0.46875, 0.171875)
+
+[node name="mesh6" parent="Camera3D/gun/root/hold/indicator" index="0" unique_id=1360455057]
+gi_mode = 0
+surface_material_override/0 = SubResource("StandardMaterial3D_eho78")
 
 [node name="muzzle_flash" type="Node3D" parent="Camera3D/gun" unique_id=1050437580]
 transform = Transform3D(-1.7484555e-07, 0, -4, 0, 4, 0, 4, 0, -1.7484555e-07, 0.25617754, 0.4806186, 0.17366362)
