@@ -454,7 +454,6 @@ cast_shadow = 0
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.10833967, -0.014713526, -0.017712057)
 light_color = Color(0.5188651, 0.8344676, 0.9948881, 0)
 light_energy = 1.744
-shadow_bias = 0.01
 shadow_normal_bias = 0.0
 omni_range = 0.11830415
 
@@ -462,12 +461,14 @@ omni_range = 0.11830415
 libraries/ = SubResource("AnimationLibrary_vcag3")
 
 [node name="mesh5" parent="Camera3D/gun/root/hold/spinner" parent_id_path=PackedInt32Array(779666712, 1326943996) index="1" unique_id=976850219]
+cast_shadow = 0
 surface_material_override/0 = SubResource("StandardMaterial3D_dyry2")
 
 [node name="indicator" parent="Camera3D/gun/root/hold" parent_id_path=PackedInt32Array(779666712, 1420444378) index="3" unique_id=402023913]
 transform = Transform3D(0.99904823, 0.043619383, 0, -0.043619383, 0.99904823, 0, 0, 0, 1, -0.1875, 0.46875, 0.171875)
 
 [node name="mesh6" parent="Camera3D/gun/root/hold/indicator" index="0" unique_id=1360455057]
+cast_shadow = 0
 gi_mode = 0
 surface_material_override/0 = SubResource("StandardMaterial3D_eho78")
 
