@@ -19,7 +19,7 @@ signal weapon_fired
 var current_weapon_damage = 1 # todo get this from current weapon
 
 const SPEED = 3.0
-const MOUSE_SENSITIVITY = 0.4
+const MOUSE_SENSITIVITY = 0.3
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
