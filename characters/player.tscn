@@ -467,6 +467,7 @@ anchor_bottom = 0.5
 metadata/_edit_use_anchors_ = true
 
 [node name="crosshair" type="TextureRect" parent="HUD" unique_id=2038451400]
+visible = false
 modulate = Color(1, 1, 1, 0.27058825)
 layout_mode = 1
 anchors_preset = 8

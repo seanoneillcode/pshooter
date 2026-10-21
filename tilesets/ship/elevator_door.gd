@@ -35,11 +35,9 @@ func get_used():
 		return
 	is_open = !is_open
 	if is_open:
-		animation_player.play("open")
-		collision_shape.disabled = true
+		open()
 	else:
-		animation_player.play("close")
-		collision_shape.disabled = false
+		close()
 
 func lock():
 	is_locked = true
